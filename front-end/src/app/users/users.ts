@@ -1,12 +1,21 @@
-export interface Users{
+export interface User{
     id: number,
-    firstName: string,
-    lastName: string,
-
+    name: string,
+    username: string,
+    email: string,
+    password: string,
 }
-
-export interface UsersDTO{
+export interface UserDTO{
     id: number,
-    firstName: string,
-    lastName: string,
+    name: string,
+    username: string,
+    email: string,
+    password: string,
+}
+export interface UserDetailsDTO{
+    id: number,
+    name: string,
+    username: string,
+    email: string,
+    password: string,
 }

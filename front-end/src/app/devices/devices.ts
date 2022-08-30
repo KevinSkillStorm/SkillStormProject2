@@ -1,10 +1,11 @@
-export interface Devices{
+export interface Device{
     id: number,
-    phoneNumber: number,    
+    name: string,
+    phoneNumber: string,    
 
 }
-export interface DevicesDTO{
+export interface DeviceDTO{
     id: number,
-    phoneNumber: number,    
-
+    name: string,
+    phoneNumber: string,   
 }

@@ -1,13 +1,23 @@
-export interface Plans{
+export interface Plan{
     id: number,
-    deviceLimits: number,
+    name: string,
+    limit: number,
     price: number,
-    planName: string
+    description: string
 }
 
-export interface PlansDTO{
+export interface PlanDTO{
     id: number,
-    deviceLimits: number,
+    name: string,
+    limit: number,
     price: number,
-    planName: string
+    description: string
+}
+
+export interface PlanDetailsDTO{
+    id: number,
+    name: string,
+    limit: number,
+    price: number,
+    description: string
 }

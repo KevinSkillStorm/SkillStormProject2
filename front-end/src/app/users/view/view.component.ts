@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Plans } from 'src/app/plans/plans';
+import { Plan } from 'src/app/plans/plans';
 import { PlansService } from 'src/app/plans/plans.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ViewComponent implements OnInit {
 
   userId: number = -1;
 
-  plans!: Plans;
+  plan!: Plan;
 
   constructor(
     private plansService: PlansService,
@@ -26,7 +26,7 @@ export class ViewComponent implements OnInit {
   }
 
   retrievePlan(id: number) {
-    this.plansService.getPlan(id).subscribe(gotPlans => this.plans = gotPlans)
+    this.plansService.getPlan(id).subscribe(gotPlans => this.plan = gotPlans)
   }
 
 

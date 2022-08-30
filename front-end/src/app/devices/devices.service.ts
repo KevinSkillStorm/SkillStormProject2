@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Devices, DevicesDTO } from './devices';
+import { Device, DeviceDTO } from './devices';
 
 @Injectable({
   providedIn: 'root'
@@ -19,22 +19,18 @@ export class DevicesService {
     private http: HttpClient,
   ) { }
 
-  getDevices(): Observable<Devices[]>{
-    return this.http.get<Devices[]>(this.devicesURL, this.httpOptions);
+  getDevices(): Observable<Device[]>{
+    return this.http.get<Device[]>(this.devicesURL, this.httpOptions);
   }
-
-  getDevice(id: number): Observable<Devices>{
+  getDevice(id: number): Observable<Device>{
     var url = `${this.devicesURL}/${id}`
-    return this.http.get<Devices>(url, this.httpOptions);
+    return this.http.get<Device>(url, this.httpOptions);
   }
-
-  deleteDevice(id: number): Observable<Devices>{
+  deleteDevice(id: number): Observable<Device>{
     var url = `${this.devicesURL}/${id}`
-    return this.http.delete<Devices>(url);
+    return this.http.delete<Device>(url);
+  }  
+  addDevice(deviceDTO: DeviceDTO): Observable<Device>{
+    return this.http.post<Device>(this.devicesURL, deviceDTO);
   }
-  
-  addDevice(devicesDTO: DevicesDTO): Observable<Devices>{
-    return this.http.post<Devices>(this.devicesURL, devicesDTO);
-  }
-
 }

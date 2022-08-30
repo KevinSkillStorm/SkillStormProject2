@@ -1,18 +1,27 @@
-<div class="container">
-  <header class="bd-header bg-primary py-3 d-flex align-items-stretch border-bottom border-dark">
-    <div class="container-fluid d-flex align-items-center">
-      <nav class="navbar navbar-expand navbar-dark bg-primary">
-        <a href="#" class="navbar-brand">
-          <h1 class="d-flex align-items-center fs-4 text-white mb-0">TeleCom</h1>
-        </a>
-        <div class="navbar-nav mr-auto">    
-            <a routerLink="users/login" class="nav-link text-white" >Login</a>  
-            <a routerLink="users/sign-up" class="nav-link text-white" >Sign Up</a>  
-        </div>
-      </nav>
+<div>
+  <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+    <div class="container container-fluid d-flex align-items-center">
+      <a href="#" class="navbar-brand">
+        <h1 class="d-flex align-items-center fs-3 text-white mb-0">TeleCom</h1>
+      </a>
     </div>
+    <nav class="navbar navbar-expand-md navbar-light sticky-top">
+      <div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <a routerLink="users/login" class="nav-link text-white">Login</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="users/sign-up" class="nav-link text-white">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
-  <div class="container mt-3">
-    <router-outlet></router-outlet>
-  </div>
 </div>
+  <!-- <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div> -->
+  <router-outlet></router-outlet>
