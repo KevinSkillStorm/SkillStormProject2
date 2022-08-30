@@ -2,14 +2,12 @@ export interface Plans{
     id: number,
     deviceLimits: number,
     price: number,
-    firstName: string,
-    lastName: string,
+    planName: string
 }
 
 export interface PlansDTO{
     id: number,
     deviceLimits: number,
     price: number,
-    firstName: string,
-    lastName: string,
+    planName: string
 }

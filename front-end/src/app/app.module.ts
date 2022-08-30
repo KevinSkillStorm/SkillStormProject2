@@ -6,7 +6,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './users/login/login.component';
+import { UsersModule } from './users/users.module';
+import { PlansModule } from './plans/plans.module';
+import { DevicesModule } from './devices/devices.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,10 @@ import { LoginComponent } from './users/login/login.component';
     FormsModule,
     CommonModule,
     NgForOf,
+    
+    UsersModule,
+    PlansModule,
+    DevicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
