@@ -7,7 +7,7 @@ import { Device, DeviceDTO } from './devices';
   providedIn: 'root'
 })
 export class DevicesService {
-  private devicesURL = '';
+  private devicesURL = 'https://localhost:7104/api/Devices';
 
   private httpOptions = {
     headers: new HttpHeaders({

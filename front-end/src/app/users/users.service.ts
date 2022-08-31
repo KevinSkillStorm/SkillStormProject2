@@ -8,7 +8,7 @@ import { User } from './users';
   providedIn: 'root'
 })
 export class UsersService {
-  private usersURL = '';
+  private usersURL = 'https://localhost:7104/api/Users';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -24,6 +24,6 @@ export class UsersService {
   }
   getUser(id: number): Observable<User> {
     var url = `${this.usersURL}/${id}`;
-    return this.http.get<User>(this.usersURL, this.httpOptions);
+    return this.http.get<User>(url, this.httpOptions);
   }
 }

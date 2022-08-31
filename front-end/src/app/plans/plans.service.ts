@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PlansService {
-  private planURL = '';
+  private planURL = 'https://localhost:7104/api/Plans';
 
   private httpOptions = {
     headers: new HttpHeaders({
