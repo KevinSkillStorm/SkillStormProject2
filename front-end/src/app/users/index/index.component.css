@@ -1,8 +1,4 @@
 .picsum-img-wrapper{
-    height:32rem;
+    height:50rem;
     position: relative;
-}
-
-.slider-image{
-    height: 80vh !important;
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  images = ["rose", "peacock", "dog"].map((n) => `assets/picture/${n}.jpg`);
+  images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
   
   constructor() { }
 

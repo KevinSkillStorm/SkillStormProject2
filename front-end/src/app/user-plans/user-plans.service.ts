@@ -30,6 +30,11 @@ export class UserPlansService {
     return this.httpClient.get<UserPlan>(url, this.httpOptions);
   }
 
+  getUserPlanFromUser(id: number): Observable<UserPlan[]> {
+    let url = `${this.apiURL}/Users/${id}`;
+    return this.httpClient.get<UserPlan[]>(url, this.httpOptions);  
+  }
+
   createUserPlan(userPlan:UserPlan): Observable<UserPlan> {
     return this.httpClient.post<UserPlan>(this.apiURL, userPlan, this.httpOptions)
   }  

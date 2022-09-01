@@ -1,1 +1,46 @@
-<p>view works!</p>
+<div class="container">
+    <p></p>
+    <a href="#" routerLink="/users/index" class="btn btn-primary">&lt;&lt; Back</a>
+</div>
+<p></p>
+<div class="container">
+    <h1 class="container text-center">Select a Plan</h1>
+</div>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm p-3 my-3 border border-warning border-3">
+            <h2>Gold Premium</h2>
+            <p></p>
+            <p>Monthly Payment: $123.99/Mnth</p>
+            <p>Description</p>
+            <p>Gold is best because Gold</p>
+        </div>
+        <div class="col-sm p-3 my-3 border border-3">
+            <h2>Silver Premium</h2>
+            <p></p>
+            <p>Monthly Payment: $100.99/Mnth</p>
+            <p>Description</p>
+            <p>Silver is second best because Silver</p>
+        </div>
+        <div class="col-sm p-3 my-3 border border-secondary border-3">
+            <h2>Bronze Premium</h2>
+            <p></p>
+            <p>Monthly Payment: $80.99/Mnth</p>
+            <p>Description</p>
+            <p>Bronze</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <button type="submit" class=" border-warning" (click)="retrieveGoldPlan()">Gold</button>
+        </div>
+        <div class="col-sm">
+            <button type="submit" class=" border" (click)="retrieveSilverPlan()">Silver</button>
+        </div>
+        <div class="col-sm">
+            <button type="submit" class=" border-secondary" (click)="retrieveBronzePlan()">Bronze</button>
+        </div>
+
+    </div>
+</div>
