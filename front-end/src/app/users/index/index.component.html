@@ -1,30 +1,26 @@
 <ngb-carousel *ngIf="images">
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img [src]="images[0]" class="img-fluid slider-image" alt="First Slide">
+      <img [src]="images[0]" class="img-fluid" alt="First Slide">
     </div>
     <div class="carousel-caption">
-      <h3 class="text-dark">Welcome!</h3>
+      <h3>Welcome!</h3>
       <p>Don't have an account with us?</p>
-      <button type="submit">Register Today</button>
+      <a href="#" routerLink="/users/1" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
   </ng-template>
   <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[1]" class="img-fluid slider-image" alt="Second Slide">
-    </div>
+   
     <div class="carousel-caption">
       <p>Don't have an account with us?</p>
-      <button type="submit">Register Today</button>
+      <a href="#" routerLink="/users/1" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
   </ng-template>
   <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[2]" class="img-fluid slider-image" alt="Third Slide">
-    </div>
+
     <div class="carousel-caption">
       <p>Don't have an account with us?</p>
-      <button type="submit">Register Today</button>
+      <a href="#" routerLink="/users/1" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
   </ng-template>
 </ngb-carousel>
