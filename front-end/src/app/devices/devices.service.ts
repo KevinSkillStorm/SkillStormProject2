@@ -28,6 +28,7 @@ export class DevicesService {
   }
   deleteDevice(id: number): Observable<Device>{
     var url = `${this.devicesURL}/${id}`
+    console.log(url);
     return this.http.delete<Device>(url);
   }  
   addDevice(deviceDTO: DeviceDTO): Observable<Device>{

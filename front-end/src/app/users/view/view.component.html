@@ -14,6 +14,7 @@
                 <th>Limit</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Options</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
                 <td>{{plan.limit}}</td>
                 <td>{{plan.price}}</td>
                 <td>{{plan.description}}</td>
+                <td><button (click)="removePlan(plan.id)" class="btn btn-danger">Delete</button></td>
             </tr>  
         </tbody>
     </table>
@@ -32,14 +34,22 @@
             <tr>
                 <th>Name</th>
                 <th>Phone Number</th>
+                <th>Options</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let device of devices">
                 <td>{{device.name}}</td>
                 <td>{{device.phoneNumber}}</td>
+                <td><button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
             </tr>  
         </tbody>
     </table>
+    <h3>Monthly Payment Breakdown</h3>
+    <div *ngFor="let plan of plans">
+        <p>{{plan.name}} costs <strong>${{plan.price}}</strong> a month</p>
+    </div>
+    <p>The total price per month is <strong>${{calculatePrice()}}</strong></p>
+    <button (click)="removeUser(user.id)" class="btn btn-danger">Delete Account </button>
 </div>
   
