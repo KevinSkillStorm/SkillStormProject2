@@ -101,11 +101,12 @@ export class ViewComponent implements OnInit {
               planId: new FormControl(planData.id, Validators.required)
             });
             this.router.navigateByUrl(`user-plans/add/${this.userId}/${planData.id}`);
+            // this.router.navigateByUrl(`users/${this.userId}`);
           }
           else {
             // user pressed cancel
           }
-        });
+        }); 
     }
     // This is to populate or create userplan connection if we have no plans within system for
     // this particular user.
@@ -123,7 +124,7 @@ export class ViewComponent implements OnInit {
           console.log(userPlan);
           console.log(userPlan.id);
           console.log(userPlan.planId);
-          this.router.navigateByUrl(`user/index`);
+          this.router.navigateByUrl(`/users/${this.userId}`);
         });
       }
       else {

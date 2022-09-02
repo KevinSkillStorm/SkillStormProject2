@@ -37,7 +37,7 @@ export class AddComponent implements OnInit {
     this.userPlansService.createUserPlan(this.newUserPlan.value).subscribe((res: any) => { // response object
       console.log(res);
       // this.router.navigateByUrl('passenger/create/lastID');
-      this.router.navigateByUrl('user/index');
+      this.router.navigateByUrl(`users/${res.userId}`);
     });
   }
 
