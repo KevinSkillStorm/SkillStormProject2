@@ -154,7 +154,7 @@ export class ViewComponent implements OnInit {
   calculatePrice(): string {
     var total = 0
     this.plans.forEach(p => total += p.price)
-    return `${total}` 
+    return `${total.toFixed(2)}` 
   }
   disableButton(): boolean {
     var limit = 0;

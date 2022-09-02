@@ -82,30 +82,31 @@ export class EditComponent implements OnInit {
     console.log(device.id);
     console.log(this.currentPlan.id);
     if (confirm("Update Device?")) {
+      console.log(this.currentPhoneNumber)
+      console.log(device.phoneNumber)
       this.swapPhoneNumberForm = new FormGroup({
-        id: new FormControl(device.id),
+        // id: new FormControl(device.id),
         name: new FormControl(device.name),
         phoneNumber: new FormControl(this.currentPhoneNumber),
         userId: new FormControl(device.userId)
 
       });
       this.swapPhoneNumberForm2 = new FormGroup({
-        id: new FormControl(this.currentDeviceId),
+        // id: new FormControl(this.currentDeviceId),
         name: new FormControl(this.currentPlan.name),
         phoneNumber: new FormControl(device.phoneNumber),
         userId: new FormControl(device.userId)
 
       });
-      forkJoin(
-        this.deviceService.updateDevice(device.id, this.swapPhoneNumberForm.value),
-        this.deviceService.updateDevice(this.currentDeviceId, this.swapPhoneNumberForm2.value)
-      ).subscribe(res =>{
-        this.router.navigateByUrl(`devices/edit/${this.currentUserId}/${this.currentPlanId}/${this.currentDeviceId}`);
-        window.location.reload();
-      });
-
-
-
+        this.deviceService.deleteDevice(device.id).subscribe(res =>{
+          this.deviceService.deleteDevice(this.currentDeviceId).subscribe(res =>{
+            this.deviceService.addDevice(this.swapPhoneNumberForm.value).subscribe(res =>{
+            this.deviceService.addDevice(this.swapPhoneNumberForm2.value).subscribe(res =>{
+              this.router.navigateByUrl(`users/${device.userId}`);
+            });
+            });
+          });
+        });
     }
   }
   deviceIsNotCurrent(device: Device): boolean {
