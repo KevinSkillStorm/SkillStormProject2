@@ -156,4 +156,18 @@ export class ViewComponent implements OnInit {
     this.plans.forEach(p => total += p.price)
     return `${total}` 
   }
+  disableButton(): boolean {
+    var limit = 0;
+    this.plans.forEach(p => {
+      limit += p.limit
+    })
+    if (limit > this.devices.length) {
+      return false;
+    }
+    return true;
+  }
+  
+  routing(): void {
+    this.router.navigateByUrl(`/devices/add/${this.user.id}`);
+  }
 }

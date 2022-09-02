@@ -28,7 +28,7 @@
             </tr>  
         </tbody>
     </table>
-    <h3>Devices</h3>
+    <h3>Devices</h3><button [disabled]="disableButton()" (click)="routing()" class="btn btn-success">+ Create Device</button>
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
@@ -41,8 +41,8 @@
             <tr *ngFor="let device of devices">
                 <td>{{device.name}}</td>
                 <td>{{device.phoneNumber}}</td>
-                <td><button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
-                <td><button (click)="routeToUpdate(device, user.id)" class="btn btn-danger">Edit</button></td>
+                <td><button (click)="routeToUpdate(device, user.id)" class="btn btn-primary">Edit</button>
+                    <button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
             </tr>  
         </tbody>
     </table>

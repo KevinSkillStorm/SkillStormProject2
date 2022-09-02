@@ -5,6 +5,7 @@ import { DevicesRoutingModule } from './devices-routing.module';
 import { AddComponent } from './add/add.component';
 import { RemoveComponent } from './remove/remove.component';
 import { EditComponent } from './edit/edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { EditComponent } from './edit/edit.component';
   ],
   imports: [
     CommonModule,
-    DevicesRoutingModule
+    DevicesRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class DevicesModule { }

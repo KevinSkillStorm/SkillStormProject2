@@ -31,13 +31,13 @@ export class EditComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) { 
+  }
 
   ngOnInit(): void {
     this.currentUserId = this.route.snapshot.params['id1'];
     this.currentPlanId = this.route.snapshot.params['id2'];
     this.currentDeviceId = this.route.snapshot.params['id3'];
-
     this.retrievePlanName();
   }
 
@@ -96,7 +96,6 @@ export class EditComponent implements OnInit {
         userId: new FormControl(device.userId)
 
       });
-
       forkJoin(
         this.deviceService.updateDevice(device.id, this.swapPhoneNumberForm.value),
         this.deviceService.updateDevice(this.currentDeviceId, this.swapPhoneNumberForm2.value)
@@ -109,7 +108,10 @@ export class EditComponent implements OnInit {
 
     }
   }
+  deviceIsNotCurrent(device: Device): boolean {
 
+    return true;
+  }
   // this.currentUserId = this.route.snapshot.params['id1'];
   //   this.currentPlanId = this.route.snapshot.params['id2'];
   //   this.currentDeviceId
