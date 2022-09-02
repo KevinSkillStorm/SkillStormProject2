@@ -127,8 +127,9 @@ export class ViewComponent implements OnInit {
         });
       }
       else {
-        // User clicked no
+        // User canceled
       }
     }
   }
+
 }

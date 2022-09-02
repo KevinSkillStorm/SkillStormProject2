@@ -5,7 +5,7 @@ import { RemoveComponent } from './remove/remove.component';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [  
-  { path: 'plans/view', component: ViewComponent },
+  { path: 'plans/view/:id', component: ViewComponent },
   { path: 'plans/add/:id1/:id2', component: AddComponent },
   { path: 'plans/remove', component: RemoveComponent },
 

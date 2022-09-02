@@ -21,8 +21,10 @@ export class ViewComponent implements OnInit {
   devices: Device[] = [];
   // user!: Observable<User>;
   user: User;
+  selectedPlanId!: number;
 
   constructor(
+    private planService: PlansService,
     private userPlansService: UserPlansService,
     private plansService: PlansService,
     private deviceService: DevicesService,
@@ -135,6 +137,19 @@ export class ViewComponent implements OnInit {
         }
       })
     }
+  }
+  routeToUpdate(device: Device, userId : number){
+    this.retrievePlanName(device, userId);
+  }
+  retrievePlanName(device: Device, userId : number){
+    this.planService.getPlans().subscribe(gotPlans => {
+      gotPlans.forEach(plan => {
+        if (plan.name == device.name) {
+          this.selectedPlanId = plan.id;
+          this.router.navigateByUrl(`devices/edit/${userId}/${this.selectedPlanId}/${device.id}`);
+        }
+      })
+    });
   }
   calculatePrice(): string {
     var total = 0

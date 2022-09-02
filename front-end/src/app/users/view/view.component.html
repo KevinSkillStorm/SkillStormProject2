@@ -42,6 +42,7 @@
                 <td>{{device.name}}</td>
                 <td>{{device.phoneNumber}}</td>
                 <td><button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
+                <td><button (click)="routeToUpdate(device, user.id)" class="btn btn-danger">Edit</button></td>
             </tr>  
         </tbody>
     </table>

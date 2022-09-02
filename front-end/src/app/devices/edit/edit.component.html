@@ -1,0 +1,32 @@
+<p></p>
+<a href="#" routerLink="/users/1" class="btn btn-primary">&lt;&lt; Back</a>
+<div class="container">
+    <h1 class="text-center">Edit Phone Numbers</h1>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Plan Name</th>                
+                <th>Phone Number</th>  
+                <th>id</th>  
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let eachDevice of devices">
+                <td>{{ eachDevice.name }}</td>    
+                <td>{{ eachDevice.phoneNumber }}</td>
+                <td>{{ eachDevice.id }}</td>
+                <td><button (click)="swapPhoneNumber(eachDevice)" 
+                    class="btn btn-danger">Switch</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <h1>Select which phone number to switch from current plan</h1>   
+    <td>{{ currentPhoneNumber }}</td>
+   
+</div>
+
+
+
