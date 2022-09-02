@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c7e3d917-2d5e-463f-a85d-35bcd40cbee8/microsoft.web/sites/subscriptions/c7e3d917-2d5e-463f-a85d-35bcd40cbee8/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.Web/sites/PhoneWebApp",
+    "appService.deploySubpath": "front-end\\dist"
+}

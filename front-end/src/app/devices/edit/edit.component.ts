@@ -78,6 +78,7 @@ export class EditComponent implements OnInit {
 
 
   swapPhoneNumber(device: Device): void {
+    if (!(device.id == this.currentDeviceId)) {
     // swapPhoneNumber(eachDevice.id, eachDevice.name)    
     console.log(device.id);
     console.log(this.currentPlan.id);
@@ -101,12 +102,16 @@ export class EditComponent implements OnInit {
         this.deviceService.deleteDevice(device.id).subscribe(res =>{
           this.deviceService.deleteDevice(this.currentDeviceId).subscribe(res =>{
             this.deviceService.addDevice(this.swapPhoneNumberForm.value).subscribe(res =>{
-            this.deviceService.addDevice(this.swapPhoneNumberForm2.value).subscribe(res =>{
-              this.router.navigateByUrl(`users/${device.userId}`);
-            });
+              this.deviceService.addDevice(this.swapPhoneNumberForm2.value).subscribe(res =>{
+                this.router.navigateByUrl(`users/${device.userId}`);
+              });
             });
           });
         });
+      }
+    }
+    else {
+      alert("You cannot swap the same number!")
     }
   }
   deviceIsNotCurrent(device: Device): boolean {

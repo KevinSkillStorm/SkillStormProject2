@@ -5,7 +5,7 @@
         <p>Username: <strong>{{user.username}}</strong></p>
         <p>Email: <strong>{{user.email}}</strong></p>
     </div>
-    <h3>Plans</h3><button [disabled]="disableButton()" (click)="routeToPlan()" class="btn btn-success">+ Add New Plan</button>
+    <h3>Plans</h3><a href="#" routerLink="/plans/view/{{user.id}}" class="btn btn-success">+ Add Plan</a>
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
