@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Device, DeviceDTO } from './devices';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DevicesService {
-  private devicesURL = 'https://localhost:7104/api/Devices';
-
+  private devicesURL = `${environment.apiUrl}/Devices`;
+  
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

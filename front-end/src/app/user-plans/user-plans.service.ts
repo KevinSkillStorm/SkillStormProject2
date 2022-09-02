@@ -5,13 +5,14 @@ import {  Observable } from 'rxjs';
   
 import { UserPlan } from './user-plans';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserPlansService {
   
-  private apiURL = "https://localhost:7104/api/UserPlans";
+  private apiURL = `${environment.apiUrl}/UserPlans`;
     
   httpOptions = {
     headers: new HttpHeaders({

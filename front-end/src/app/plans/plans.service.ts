@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Plan, PlanDTO } from './plans';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlansService {
-  private planURL = 'https://localhost:7104/api/Plans';
+  private planURL = `${environment.apiUrl}/Plans`;
 
   private httpOptions = {
     headers: new HttpHeaders({

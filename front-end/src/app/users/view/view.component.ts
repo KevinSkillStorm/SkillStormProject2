@@ -170,4 +170,7 @@ export class ViewComponent implements OnInit {
   routing(): void {
     this.router.navigateByUrl(`/devices/add/${this.user.id}`);
   }
+  routeToPlan(): void {
+    this.router.navigateByUrl(`/plans/view/${this.user.id}`);
+  }
 }
