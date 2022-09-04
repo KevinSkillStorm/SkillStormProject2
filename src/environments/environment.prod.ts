@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://victorious-sea-08c9bd610.1.azurestaticapps.net/api'
+  apiUrl: 'https://phone-container-app.calmcoast-6c3e3bf8.centralus.azurecontainerapps.io/api'
 };
