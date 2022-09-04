@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { interceptconfig } from 'src/app/app-config';
-import { environment } from 'src/environments/environment.prod';
-import { getIdReponse } from 'src/app/Id';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
@@ -13,7 +10,7 @@ export class IndexComponent implements OnInit {
 
   images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
 
-  currentUserId: number = getIdReponse();;
+  @Input() currentUserId!: number;
 
   constructor() { }
 

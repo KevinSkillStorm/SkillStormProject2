@@ -5,7 +5,6 @@ import { EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
-import { getIdReponse, setIdResponse } from './Id';
 
 
 @Component({
@@ -65,8 +64,7 @@ export class AppComponent {
           res.forEach(u => {
             if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
               flag = true;
-              setIdResponse(u.id);
-              this.currentUserId = getIdReponse();
+              this.currentUserId = u.id;
             }
           });
         });
@@ -79,8 +77,7 @@ export class AppComponent {
             password: ''
           }
           this.userService.createUser(this.currentUser).subscribe(res => {
-            setIdResponse(res.id);
-            this.currentUserId = getIdReponse();
+            this.currentUserId = res.id;
           })
         }
       }

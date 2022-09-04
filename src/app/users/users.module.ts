@@ -16,7 +16,6 @@ import { IndexComponent } from './index/index.component';
     LoginComponent,
     SignUpComponent,
     ViewComponent,
-    IndexComponent
   ],
   imports: [
     CommonModule,

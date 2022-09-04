@@ -20,6 +20,7 @@ import { msalConfig, guardConfig, isIE, b2cPolicies, interceptconfig } from './a
 
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
+import { IndexComponent } from './users/index/index.component';
 
 
 
@@ -29,7 +30,8 @@ function MSALConfigFactory(): Configuration {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent,
   ],
   imports: [
     MsalModule.forRoot(new PublicClientApplication({
@@ -54,7 +56,6 @@ function MSALConfigFactory(): Configuration {
     FormsModule,
     CommonModule,
     NgForOf,
-
     UsersModule,
     PlansModule,
     DevicesModule,
