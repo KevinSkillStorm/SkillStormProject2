@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -10,15 +11,20 @@ export class IndexComponent implements OnInit {
 
   images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
 
-  @Input() currentUserId!: number;
+  // @Input() currentUserId!: number;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  currentUserId!: number;
 
   
 
+  constructor(private app: AppComponent) { }
+
+  ngOnInit(): void {
+    this.app.currentEvent.subscribe(id => this.currentUserId = id);
+    console.log(this.currentUserId);
+  }
+
+ 
 }
 
 
