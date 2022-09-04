@@ -35,10 +35,10 @@ function MSALConfigFactory(): Configuration {
     MsalModule.forRoot(new PublicClientApplication({
       auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
-        // authority: "https://login.microsoftonline.com/common/",
-        authority: b2cPolicies.authorities.signUpSignIn.authority,
-        redirectUri: "https://phoneserviceclient.pct.co",
-        postLogoutRedirectUri: "https://phoneserviceclient.pct.co",
+        authority: "https://login.microsoftonline.com/common/",
+        // authority: b2cPolicies.authorities.signUpSignIn.authority,
+        redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
         navigateToLoginRequestUrl: true,
       },
       cache: {
