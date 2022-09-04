@@ -12,7 +12,7 @@ import { DevicesModule } from './devices/devices.module';
 import { PhoneNumbersModule } from './phone-numbers/phone-numbers.module';
 import { UserPlansModule } from './user-plans/user-plans.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MsalInterceptor, MsalModule, MSAL_BROADCAST_CONFIG, MsalService, MsalBroadcastConfiguration, MSAL_INTERCEPTOR_CONFIG } from '@azure/msal-angular';
+import { MsalInterceptor, MsalModule } from '@azure/msal-angular';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Configuration } from 'msal';
@@ -34,7 +34,7 @@ function MSALConfigFactory(): Configuration {
     MsalModule.forRoot(new PublicClientApplication({
       auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
-        authority: b3cPolicies.authorities.signUpSignIn.authority,
+        authority: "https://login.microsoftonline.com/common/",
         redirectUri: "https://phoneserviceclient.pct.co",
         postLogoutRedirectUri: "https://phoneserviceclient.pct.co",
         navigateToLoginRequestUrl: true,
