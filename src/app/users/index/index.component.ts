@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
+import { AppService } from 'src/app/app.service';
 
 
 @Component({
@@ -17,11 +18,14 @@ export class IndexComponent implements OnInit {
 
   
 
-  constructor(private app: AppComponent) { }
+  constructor(private sendEvent: AppService) { }
 
   ngOnInit(): void {
-    this.app.currentEvent.subscribe(id => this.currentUserId = id);
-    console.log(this.currentUserId);
+    this.sendEvent.currentEvent.subscribe(id => {
+      this.currentUserId = id;
+      console.log(`this.currentUserId = ${this.currentUserId}`);
+    });
+    
   }
 
  

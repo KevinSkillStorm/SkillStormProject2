@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
-import { BehaviorSubject, filter } from 'rxjs';
+import { filter } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/';
 import { EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
+import { AppService } from './app.service';
 
 
 @Component({
@@ -21,22 +23,23 @@ export class AppComponent {
   currentUserId: number = -1;
 
   constructor(
-    private broadcastService: MsalBroadcastService, 
-    private authService: MsalService, 
+    private sendEvent: AppService,
+    private broadcastService: MsalBroadcastService,
+    private authService: MsalService,
     private userService: UsersService) {
-      this.currentUser = {
-        id: this.currentUserId,
-        name: '',
-        username: '',
-        email: '',
-        password: ''
-      }
-   }
+    this.currentUser = {
+      id: this.currentUserId,
+      name: '',
+      username: '',
+      email: '',
+      password: ''
+    }
+  }
 
-   private sendEvent = new BehaviorSubject<number>(-1);
-   currentEvent = this.sendEvent.asObservable();
+
 
   ngOnInit(): void {
+
     this.isIframe = window !== window.parent && !window.opener;
     this.checkAccount();
 
@@ -68,7 +71,8 @@ export class AppComponent {
             if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
               flag = true;
               this.currentUserId = u.id;
-              this.sendCurrentUserId(this.currentUserId);
+              // this.sendCurrentUserId(this.currentUserId);
+              this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
             }
           });
         });
@@ -82,7 +86,8 @@ export class AppComponent {
           }
           this.userService.createUser(this.currentUser).subscribe(res => {
             this.currentUserId = res.id;
-            this.sendCurrentUserId(this.currentUserId);
+            // this.sendCurrentUserId(this.currentUserId);
+            this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
           })
         }
       }
@@ -90,10 +95,10 @@ export class AppComponent {
 
   }
 
-  public sendCurrentUserId(id: number){
-    this.sendEvent.next(id);
-  }
-  
+  // public sendCurrentUserId(id: number){
+  //   this.sendEvent.next(id);
+  // }
+
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
   }
