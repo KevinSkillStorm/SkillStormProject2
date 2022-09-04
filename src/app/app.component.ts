@@ -5,7 +5,7 @@ import { EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
-import { environment } from 'src/environments/environment.prod';
+import { currentUserId, setIdResponse } from './Id';
 
 
 @Component({
@@ -19,13 +19,14 @@ export class AppComponent {
   loggedIn = false;
 
   currentUser: UserDTO;
+  currentUserId: number = -1;
 
   constructor(
     private broadcastService: MsalBroadcastService, 
     private authService: MsalService, 
     private userService: UsersService) {
       this.currentUser = {
-        id: currentUserId,
+        id: this.currentUserId,
         name: '',
         username: '',
         email: '',
@@ -64,20 +65,22 @@ export class AppComponent {
           res.forEach(u => {
             if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
               flag = true;
-              currentUserId = u.id
+              setIdResponse(u.id);
+              this.currentUserId = currentUserId
             }
           });
         });
         if (!flag) {
           this.currentUser = {
-            id: currentUserId,
+            id: this.currentUserId,
             name: authReponse.account?.name!,
             username: authReponse.account?.username!,
             email: authReponse.account?.username!,
             password: ''
           }
           this.userService.createUser(this.currentUser).subscribe(res => {
-            currentUserId = res.id
+            setIdResponse(res.id);
+            this.currentUserId = currentUserId
           })
         }
       }
@@ -96,5 +99,3 @@ export class AppComponent {
   }
 
 }
-
-export var currentUserId: number = -1;

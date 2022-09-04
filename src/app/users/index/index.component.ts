@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { interceptconfig } from 'src/app/app-config';
 import { environment } from 'src/environments/environment.prod';
-import { currentUserId } from 'src/app/app.component';
+import { currentUserId } from 'src/app/Id';
 
 
 @Component({
