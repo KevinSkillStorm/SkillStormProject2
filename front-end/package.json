@@ -6,10 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "swa:start": "swa start app",
-    "swa:login": "swa deploy app",
-    "swa:deploy": "swa login"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
