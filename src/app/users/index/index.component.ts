@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,9 @@ export class IndexComponent implements OnInit {
 
   @Input() currentUserId!: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    console.log(this.route.root.data)
+   }
 
   ngOnInit(): void {
   }
