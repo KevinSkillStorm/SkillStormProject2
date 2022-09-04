@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { interceptconfig } from 'src/app/app-config';
+
+
 
 @Component({
   selector: 'app-index',
@@ -14,4 +17,8 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }
+
+

@@ -37,6 +37,7 @@ export class AppComponent {
         console.log(result);
       });
 
+    // 
     this.authService.handleRedirectObservable().subscribe((authReponse) => {
       console.log(authReponse);
     });
