@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { filter } from 'rxjs';
-import { BehaviorSubject } from 'rxjs/';
+import { BehaviorSubject } from 'rxjs';
 import { EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
@@ -39,7 +39,7 @@ export class AppComponent {
 
 
   ngOnInit(): void {
-
+    this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
     this.isIframe = window !== window.parent && !window.opener;
     this.checkAccount();
 
@@ -71,8 +71,7 @@ export class AppComponent {
             if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
               flag = true;
               this.currentUserId = u.id;
-              // this.sendCurrentUserId(this.currentUserId);
-              this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
+              this.sendEvent.sendCurrentUserId(this.currentUserId);
             }
           });
         });
@@ -86,8 +85,7 @@ export class AppComponent {
           }
           this.userService.createUser(this.currentUser).subscribe(res => {
             this.currentUserId = res.id;
-            // this.sendCurrentUserId(this.currentUserId);
-            this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
+            this.sendEvent.sendCurrentUserId(this.currentUserId);
           })
         }
       }
@@ -95,9 +93,7 @@ export class AppComponent {
 
   }
 
-  // public sendCurrentUserId(id: number){
-  //   this.sendEvent.next(id);
-  // }
+
 
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
