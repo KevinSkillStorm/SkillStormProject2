@@ -4,7 +4,7 @@ import { Configuration } from "msal";
 
 export const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Triden/') > -1;
 
-export const b3cPolicies = {
+export const b2cPolicies = {
     names: {
         signUpSignIn: 'B2C_1_phone-client'
     },
@@ -23,7 +23,7 @@ export const apiConfig: { b2cScopes: string[], apiEndpoint: string } = {
 export const msalConfig: Configuration = {
     auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
-        authority: b3cPolicies.authorities.signUpSignIn.authority,
+        authority: b2cPolicies.authorities.signUpSignIn.authority,
         redirectUri: "https://phoneserviceclient.pct.co",
         postLogoutRedirectUri: "https://phoneserviceclient.pct.co",
         navigateToLoginRequestUrl: true,

@@ -16,7 +16,8 @@ import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Configuration } from 'msal';
-import { msalConfig, guardConfig, isIE, interceptconfig } from './app-config';
+import { msalConfig, guardConfig, isIE, b2cPolicies, interceptconfig } from './app-config';
+
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
 
@@ -34,7 +35,8 @@ function MSALConfigFactory(): Configuration {
     MsalModule.forRoot(new PublicClientApplication({
       auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
-        authority: "https://login.microsoftonline.com/common/",
+        // authority: "https://login.microsoftonline.com/common/",
+        authority: b2cPolicies.authorities.signUpSignIn.authority,
         redirectUri: "https://phoneserviceclient.pct.co",
         postLogoutRedirectUri: "https://phoneserviceclient.pct.co",
         navigateToLoginRequestUrl: true,
