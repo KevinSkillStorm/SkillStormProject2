@@ -39,7 +39,9 @@ export class AppComponent {
 
     // 
     this.authService.handleRedirectObservable().subscribe((authReponse) => {
-      console.log(authReponse);
+      // console.log(authReponse);
+      console.log(authReponse.account?.username)
+      console.log(authReponse.account?.name)
     });
 
   }
