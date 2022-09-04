@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -11,10 +12,10 @@ export class IndexComponent implements OnInit {
 
   images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
 
-  @Input() currentUserId!: number;
+  currentUserId!: number;
 
-  constructor(private route: ActivatedRoute) {
-    console.log(this.route.root.data)
+  constructor(private app: AppComponent) {
+    this.currentUserId = app.currentUserId
    }
 
   ngOnInit(): void {
