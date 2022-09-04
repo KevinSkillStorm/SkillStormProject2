@@ -65,6 +65,7 @@ export const guardConfig: MsalGuardConfiguration = {
     interactionType: InteractionType.Redirect,
 }
 
+// Using access token to call Microsoft Graph
 export const interceptconfig: MsalInterceptorConfiguration = {
     interactionType: InteractionType.Redirect,
     protectedResourceMap: new Map([
