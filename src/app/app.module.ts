@@ -12,7 +12,7 @@ import { DevicesModule } from './devices/devices.module';
 import { PhoneNumbersModule } from './phone-numbers/phone-numbers.module';
 import { UserPlansModule } from './user-plans/user-plans.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MsalInterceptor, MsalModule } from '@azure/msal-angular';
+import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Configuration } from 'msal';
