@@ -3,6 +3,9 @@ import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { filter } from 'rxjs';
 import { EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
+import { UsersService } from './users/users.service';
+import { UserDTO } from './users/users';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -15,7 +18,20 @@ export class AppComponent {
   isIframe = false;
   loggedIn = false;
 
-  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+  currentUser: UserDTO;
+
+  constructor(
+    private broadcastService: MsalBroadcastService, 
+    private authService: MsalService, 
+    private userService: UsersService) {
+      this.currentUser = {
+        id: -1,
+        name: '',
+        username: '',
+        email: '',
+        password: ''
+      }
+   }
 
   ngOnInit(): void {
     this.isIframe = window !== window.parent && !window.opener;
@@ -42,6 +58,29 @@ export class AppComponent {
       // console.log(authReponse);
       console.log(authReponse.account?.username)
       console.log(authReponse.account?.name)
+      var flag = false
+      if (authReponse.account) {
+        this.userService.getUsers().subscribe(res => {
+          res.forEach(u => {
+            if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
+              flag = true;
+              environment.currentUserId = u.id
+            }
+          });
+        });
+        if (!flag) {
+          this.currentUser = {
+            id: -1,
+            name: authReponse.account?.name!,
+            username: authReponse.account?.username!,
+            email: authReponse.account?.username!,
+            password: ''
+          }
+          this.userService.createUser(this.currentUser).subscribe(res => {
+            environment.currentUserId = res.id
+          })
+        }
+      }
     });
 
   }
