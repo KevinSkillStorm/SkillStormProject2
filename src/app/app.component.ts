@@ -25,7 +25,7 @@ export class AppComponent {
     private authService: MsalService, 
     private userService: UsersService) {
       this.currentUser = {
-        id: -1,
+        id: currentUserId,
         name: '',
         username: '',
         email: '',
@@ -64,20 +64,20 @@ export class AppComponent {
           res.forEach(u => {
             if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
               flag = true;
-              environment.currentUserId = u.id
+              currentUserId = u.id
             }
           });
         });
         if (!flag) {
           this.currentUser = {
-            id: -1,
+            id: currentUserId,
             name: authReponse.account?.name!,
             username: authReponse.account?.username!,
             email: authReponse.account?.username!,
             password: ''
           }
           this.userService.createUser(this.currentUser).subscribe(res => {
-            environment.currentUserId = res.id
+            currentUserId = res.id
           })
         }
       }
@@ -96,3 +96,5 @@ export class AppComponent {
   }
 
 }
+
+export var currentUserId: number = -1;
