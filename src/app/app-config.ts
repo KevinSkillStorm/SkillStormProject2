@@ -68,6 +68,7 @@ export const guardConfig: MsalGuardConfiguration = {
 export const interceptconfig: MsalInterceptorConfiguration = {
     interactionType: InteractionType.Redirect,
     protectedResourceMap: new Map([
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+        // ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+        ['https://phoneserviceapp.azurewebsites.net', ['user.read']]
     ]),
 }
