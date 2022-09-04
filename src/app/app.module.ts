@@ -16,7 +16,7 @@ import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Configuration } from 'msal';
-import { msalConfig, guardConfig, b3cPolicies, isIE, interceptconfig } from './app-config';
+import { msalConfig, guardConfig, isIE, interceptconfig } from './app-config';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
 
