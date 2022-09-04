@@ -32,7 +32,7 @@ export class ViewComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private cd: ChangeDetectorRef
-  ) { 
+  ) {
     let url = this.route.snapshot.url.join('/');
     let urlParams = url.split('/');
     this.id = +urlParams[1];
@@ -55,10 +55,19 @@ export class ViewComponent implements OnInit {
 
   ngOnInit() {
     // this.userId = this.route.snapshot.params['id'];
-    this.retrieveUser();
-    this.retrievePlans();
-    this.retrieveDevices();
+    this.checkId();
+
     // this.cd.detectChanges();
+  }
+
+  checkId() {
+    if (this.user.id == -1) {
+      this.router.navigateByUrl('users');
+    } else {
+      this.retrieveUser();
+      this.retrievePlans();
+      this.retrieveDevices();
+    }
   }
 
   retrievePlans() {
@@ -90,9 +99,9 @@ export class ViewComponent implements OnInit {
     });
   }
 
-  removeUser(id : number): void {
-    if(confirm("Are you sure to delete this user?")) {
-      console.log(`ID of the user to be removed: ${id}`)  
+  removeUser(id: number): void {
+    if (confirm("Are you sure to delete this user?")) {
+      console.log(`ID of the user to be removed: ${id}`)
       this.userService.deleteUser(id).subscribe({
         next: () => {
           console.log(`The user with ID = ${id} have been removed.`)
@@ -106,8 +115,8 @@ export class ViewComponent implements OnInit {
   }
 
   removePlan(id: number): void {
-    if(confirm("Are you sure to delete this plan?")) {
-      console.log(`ID of the plan to be removed: ${id}`)  
+    if (confirm("Are you sure to delete this plan?")) {
+      console.log(`ID of the plan to be removed: ${id}`)
       this.userPlansService.getUserPlans().subscribe(gotUserPlans => gotUserPlans.forEach(userPlan => {
         if (userPlan.userId == this.id && userPlan.planId == id) {
           this.userPlansService.deleteUserPlan(userPlan.id).subscribe({
@@ -123,10 +132,10 @@ export class ViewComponent implements OnInit {
       }))
     }
   }
-  
+
   removeDevice(id: number): void {
-    if(confirm("Are you sure to delete this device?")) {
-      console.log(`ID of the device to be removed: ${id}`)  
+    if (confirm("Are you sure to delete this device?")) {
+      console.log(`ID of the device to be removed: ${id}`)
       this.deviceService.deleteDevice(id).subscribe({
         next: () => {
           this.devices = this.devices.filter(u => u.id != id)
@@ -138,10 +147,10 @@ export class ViewComponent implements OnInit {
       })
     }
   }
-  routeToUpdate(device: Device, userId : number){
+  routeToUpdate(device: Device, userId: number) {
     this.retrievePlanName(device, userId);
   }
-  retrievePlanName(device: Device, userId : number){
+  retrievePlanName(device: Device, userId: number) {
     this.planService.getPlans().subscribe(gotPlans => {
       gotPlans.forEach(plan => {
         if (plan.name == device.name) {
@@ -154,7 +163,7 @@ export class ViewComponent implements OnInit {
   calculatePrice(): string {
     var total = 0
     this.plans.forEach(p => total += p.price)
-    return `${total.toFixed(2)}` 
+    return `${total.toFixed(2)}`
   }
   disableButton(): boolean {
     var limit = 0;
@@ -166,7 +175,7 @@ export class ViewComponent implements OnInit {
     }
     return true;
   }
-  
+
   routing(): void {
     this.router.navigateByUrl(`/devices/add/${this.user.id}`);
   }
