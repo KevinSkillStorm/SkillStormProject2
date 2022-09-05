@@ -5,6 +5,7 @@ import { EventMessage, EventType } from '@azure/msal-browser';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
 import { AppService } from './app.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AppComponent {
   currentUserId: number = -1;
 
   constructor(
+    private router: Router,
     private sendEvent: AppService,
     private broadcastService: MsalBroadcastService,
     private authService: MsalService,
@@ -103,6 +105,9 @@ export class AppComponent {
   }
   public logout() {
     this.authService.logout();
+  }
+  public register(){
+    this.router.navigateByUrl('users/sign-up');
   }
 
 }
