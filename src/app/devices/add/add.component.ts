@@ -47,4 +47,5 @@ export class AddComponent implements OnInit {
     });
     this.isNumber = true;
   }
+  
 }
