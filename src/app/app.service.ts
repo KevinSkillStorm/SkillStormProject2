@@ -9,7 +9,7 @@ export class AppService {
   private sendEvent = new BehaviorSubject<number>(-1);
   currentEvent = this.sendEvent.asObservable();
   constructor() { }
-  public sendCurrentUserId(id: number) {
+  public sendCurrentUserId(id: number){
     this.sendEvent.next(id);
   }
 }
