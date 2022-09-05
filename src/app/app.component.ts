@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { filter } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { EventMessage, EventType } from '@azure/msal-browser';
+import { AuthenticationResult, EventMessage, EventType } from '@azure/msal-browser';
 import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
@@ -66,7 +66,8 @@ export class AppComponent {
         console.log(authReponse.account?.username)
         console.log(authReponse.account?.name)
         var flag = false
-        if (authReponse.account) {
+        if (authReponse.account != null && authReponse != null) {
+          this.authService.instance.setActiveAccount(authReponse.account);
           this.userService.getUsers().subscribe(res => {
             res.forEach(u => {
               if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
@@ -102,6 +103,7 @@ export class AppComponent {
 
   public login() {
     this.authService.loginRedirect();
+  
   }
   public logout() {
     this.authService.logout();

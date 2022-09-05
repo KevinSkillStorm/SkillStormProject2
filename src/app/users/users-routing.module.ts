@@ -7,12 +7,15 @@ import { ViewComponent } from './view/view.component';
 import { MsalGuard } from '@azure/msal-angular';
 
 const routes: Routes = [
-  { path: 'users', redirectTo: 'users/index', pathMatch: 'full' },
-  { path: 'users/index', component: IndexComponent },
-  { path: 'users/sign-up', component: SignUpComponent },
-  { path: 'users/login', component: LoginComponent },
-  { path: 'users/:id', component: ViewComponent, canActivate: [MsalGuard]},
-
+  {
+    path: '', canActivate: [MsalGuard], children: [
+      { path: 'users', redirectTo: 'users/index', pathMatch: 'full' },
+      { path: 'users/index', component: IndexComponent },
+      { path: 'users/sign-up', component: SignUpComponent },
+      { path: 'users/login', component: LoginComponent },
+      { path: 'users/:id', component: ViewComponent},
+    ]
+  }
 ];
 
 @NgModule({
