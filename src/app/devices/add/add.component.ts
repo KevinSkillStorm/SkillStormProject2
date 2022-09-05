@@ -39,11 +39,12 @@ export class AddComponent implements OnInit {
   submit(){
     console.log(this.form.value);
     // console.log(this.form.valid);
+    console.log(this.form.get('phoneNumber')!.value)
     var flag = true;
     this.deviceService.getDevices().subscribe((res: Device[]) => {
       res.forEach(device => {
-        console.log(device)
-        if (this.form != null && this.form.get('phoneNumber')!.value === device) {
+        if (this.form != null && this.form.get('phoneNumber')!.value === device.phoneNumber) {
+          console.log(device.phoneNumber)
           flag = false;
         }
       })
