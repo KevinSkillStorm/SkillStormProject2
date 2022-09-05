@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterConfigurationFeature } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { PhoneNumber } from 'src/app/phone-numbers/phone-numbers';
 import { Plan } from 'src/app/plans/plans';
 import { PlansService } from 'src/app/plans/plans.service';
 import { Device } from '../devices';
@@ -120,4 +122,15 @@ export class EditComponent implements OnInit {
   routeToNextPage(id: number){  
     this.router.navigateByUrl(`/users/${id}`);   
   } 
+  // this.currentUserId = this.route.snapshot.params['id1'];
+  //   this.currentPlanId = this.route.snapshot.params['id2'];
+  //   this.currentDeviceId
+
+  // this.deviceService.updateDevice(this.currentDeviceId, this.swapPhoneNumberForm2.value).subscribe((res: any) => { // response object
+  //   console.log(res);
+  // });
+
+  // this.currentPhoneNumber = device.phoneNumber;
+
+  
 }
