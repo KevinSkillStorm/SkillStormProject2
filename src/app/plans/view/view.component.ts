@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { forkJoin, Observable, of } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin, Observable } from 'rxjs';
 import { UserPlan } from 'src/app/user-plans/user-plans';
 import { UserPlansService } from 'src/app/user-plans/user-plans.service';
 import { Plan } from '../plans';

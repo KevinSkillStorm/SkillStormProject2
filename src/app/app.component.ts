@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { filter } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
 import { EventMessage, EventType } from '@azure/msal-browser';
-import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
 import { AppService } from './app.service';
