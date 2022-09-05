@@ -58,38 +58,39 @@ export class AppComponent {
       .subscribe((result: EventMessage) => {
         console.log(result);
       });
-
+      
     // 
-    this.authService.handleRedirectObservable().subscribe((authReponse) => {
-      // console.log(authReponse);
-      console.log(authReponse.account?.username)
-      console.log(authReponse.account?.name)
-      var flag = false
-      if (authReponse.account) {
-        this.userService.getUsers().subscribe(res => {
-          res.forEach(u => {
-            if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
-              flag = true;
-              this.currentUserId = u.id;
-              this.sendEvent.sendCurrentUserId(this.currentUserId);
-            }
+    this.authService.handleRedirectObservable().subscribe(
+      (authReponse) => {
+        // console.log(authReponse);
+        console.log(authReponse.account?.username)
+        console.log(authReponse.account?.name)
+        var flag = false
+        if (authReponse.account) {
+          this.userService.getUsers().subscribe(res => {
+            res.forEach(u => {
+              if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
+                flag = true;
+                this.currentUserId = u.id;
+                this.sendEvent.sendCurrentUserId(this.currentUserId);
+              }
+            });
           });
-        });
-        if (!flag) {
-          this.currentUser = {
-            id: this.currentUserId,
-            name: authReponse.account?.name!,
-            username: authReponse.account?.username!,
-            email: authReponse.account?.username!,
-            password: ''
+          if (!flag) {
+            this.currentUser = {
+              id: this.currentUserId,
+              name: authReponse.account?.name!,
+              username: authReponse.account?.username!,
+              email: authReponse.account?.username!,
+              password: ''
+            }
+            this.userService.createUser(this.currentUser).subscribe(res => {
+              this.currentUserId = res.id;
+              this.sendEvent.sendCurrentUserId(this.currentUserId);
+            })
           }
-          this.userService.createUser(this.currentUser).subscribe(res => {
-            this.currentUserId = res.id;
-            this.sendEvent.sendCurrentUserId(this.currentUserId);
-          })
         }
-      }
-    });
+      });
 
   }
 
@@ -97,7 +98,7 @@ export class AppComponent {
 
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
-  }
+  }  
 
   public login() {
     this.authService.loginRedirect();

@@ -13,6 +13,8 @@ export class IndexComponent implements OnInit {
 
   images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
 
+  loggedIn : Boolean = this.app.loggedIn;
+
   // @Input() currentUserId!: number;
 
   currentUserId!: number;
@@ -20,6 +22,7 @@ export class IndexComponent implements OnInit {
   
 
   constructor(
+    private app: AppComponent,
     private router: Router,
     private sendEvent: AppService
     ) { }
