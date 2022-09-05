@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav me-auto">
             <li class="nav-item active">
-              <a onclick="login()" class="nav-link text-white">Login</a>
+              <button (click)="login()" class="nav-link text-white">Login</button>
             </li>
             <li class="nav-item">
               <a routerLink="users/sign-up" class="nav-link text-white">Register</a>
             </li>
             <li class="nav-item" class="nav-link text-white">
-              <a onclick="logout()" class="nav-link text-white">Login</a>
+              <button (click)="logout()">LogOut</button>
             </li>
           </ul>
         </div>
@@ -25,7 +25,7 @@
   </header>
 </div>
 <!-- <app-index [currentUserId]="currentUserId"></app-index> -->
-<!-- <div class="container mt-3">
+  <!-- <div class="container mt-3">
     <router-outlet></router-outlet>
   </div> -->
 <router-outlet></router-outlet>
