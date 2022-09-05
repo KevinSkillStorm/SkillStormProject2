@@ -38,10 +38,11 @@ export class AddComponent implements OnInit {
     
   submit(){
     console.log(this.form.value);
-    console.log(this.form.valid);
+    // console.log(this.form.valid);
     var flag = true;
     this.deviceService.getDevices().subscribe((res: Device[]) => {
       res.forEach(device => {
+        console.log(device)
         if (this.form != null && this.form.get('phoneNumber')!.value === device) {
           flag = false;
         }
@@ -49,9 +50,7 @@ export class AddComponent implements OnInit {
     })
     if (flag) {
       this.deviceService.addDevice(this.form.value).subscribe((res: Device) => {
-        console.log("Device created successfully!");
-        console.log(res.name)
-        console.log(res.phoneNumber)
+        console.log("Device created successfully!");  
         this.router.navigateByUrl(`users/${res.userId}`);
       });
       this.isNumber = true;
