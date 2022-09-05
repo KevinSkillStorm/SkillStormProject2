@@ -35,8 +35,9 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     // this.userId = this.route.snapshot.params['id'];
-    this.userId = 1;
-
+    let url = this.route.snapshot.url.join('/');
+    let urlParams = url.split('/');
+    this.userId = +urlParams[2];
     // Gets the Gold plan's id number from the plans entity
 
     this.userPlansService.getUserPlans().subscribe(gotUserPlans => gotUserPlans.forEach(userPlan => {
