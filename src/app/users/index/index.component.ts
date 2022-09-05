@@ -45,14 +45,9 @@ export class IndexComponent implements OnInit {
   }
 
   routeToNextPage(id: number) {
-    // check if we are logged in, if not, we can't go
-    if (this.app.loggedIn){
-      console.log(`this.app.loggedIn = ${this.app.loggedIn}`);
+    if (id != -1) {
       this.router.navigateByUrl(`/users/${id}`);
-    } else {
-      console.log('we are not logged in');
     }
-   
   }
 }
 
