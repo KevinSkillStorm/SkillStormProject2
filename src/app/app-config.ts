@@ -35,7 +35,7 @@ export const msalConfig: Configuration = {
         cacheLocation: "localStorage",
         storeAuthStateInCookie: isIE,
 
-    },
+    },   
 }
 
 export const loginRequest: { scopes: string[] } = {

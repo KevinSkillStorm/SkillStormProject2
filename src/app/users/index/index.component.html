@@ -6,7 +6,7 @@
     <div class="carousel-caption">
       <h3>Welcome!</h3>
       <p>Don't have an account with us?</p>
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">&lt;&lt; User Page</a>
+      <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
   </ng-template>
   <ng-template ngbSlide>
@@ -15,7 +15,7 @@
     </div>
     <div class="carousel-caption">
       <p>Don't have an account with us?</p>
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">&lt;&lt; User Page</a>
+      <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
   </ng-template>
   <ng-template ngbSlide>
@@ -24,7 +24,7 @@
     </div>
     <div class="carousel-caption">
       <p>Don't have an account with us?</p>
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">&lt;&lt; User Page</a>
+      <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a>
     </div>
     <!-- <app-child (messageEvent)="receiveMessage($event)"></app-child> -->
   </ng-template>
