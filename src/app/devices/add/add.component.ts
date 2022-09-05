@@ -41,6 +41,8 @@ export class AddComponent implements OnInit {
     console.log(this.form.valid);
     this.deviceService.addDevice(this.form.value).subscribe((res: Device) => {
       console.log("Device created successfully!");
+      console.log(res.name)
+      console.log(res.phoneNumber)
       this.router.navigateByUrl(`users/${res.userId}`);
     });
     this.isNumber = true;
