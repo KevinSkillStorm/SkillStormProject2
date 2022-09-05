@@ -40,25 +40,25 @@ export class AddComponent implements OnInit {
     console.log(this.form.value);
     // console.log(this.form.valid);
     console.log(this.form.get('phoneNumber')!.value)
-    var flag = true;
     this.deviceService.getDevices().subscribe((res: Device[]) => {
+      var flag = true;
       res.forEach(device => {
         if (this.form != null && this.form.get('phoneNumber')!.value === device.phoneNumber) {
           console.log(device.phoneNumber)
           flag = false;
         }
       })
+      if (flag) {
+        this.deviceService.addDevice(this.form.value).subscribe((res: Device) => {
+          console.log("Device created successfully!");  
+          this.router.navigateByUrl(`users/${res.userId}`);
+        });
+        this.isNumber = true;
+      }
+      else {
+        alert("Please pick a unique phone number")
+      }
     })
-    if (flag) {
-      this.deviceService.addDevice(this.form.value).subscribe((res: Device) => {
-        console.log("Device created successfully!");  
-        this.router.navigateByUrl(`users/${res.userId}`);
-      });
-      this.isNumber = true;
-    }
-    else {
-      alert("Please pick a unique phone number")
-    }
   }
   
 }
