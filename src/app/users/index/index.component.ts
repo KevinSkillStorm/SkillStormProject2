@@ -31,6 +31,7 @@ export class IndexComponent implements OnInit {
     this.sendEvent.currentEvent.subscribe(id => {
       this.currentUserId = id;
       console.log(`this.currentUserId = ${this.currentUserId}`);
+      this.router.navigateByUrl(`/users/${id}`);
     });    
   }
 
