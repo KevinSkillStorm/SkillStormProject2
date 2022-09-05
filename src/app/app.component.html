@@ -9,14 +9,14 @@
       <div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item active">              
-              <a (click)="login()" class="nav-link text-white">Login</a>
+            <li class="nav-item active">
+              <button (click)="login()" class="nav-link text-white">Login</button>
             </li>
             <li class="nav-item">
               <a routerLink="users/sign-up" class="nav-link text-white">Register</a>
             </li>
-            <li class="nav-item" class="nav-link text-white">             
-              <a (click)="logout()" class="nav-link text-white">Register</a>
+            <li class="nav-item" class="nav-link text-white">
+              <button (click)="logout()">LogOut</button>
             </li>
           </ul>
         </div>
