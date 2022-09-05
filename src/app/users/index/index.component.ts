@@ -11,7 +11,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class IndexComponent implements OnInit {
 
-  images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
+  images = ["water", "canyon", "lake"].map((n) => `assets/picture/${n}.jpg`);
 
   loggedIn : Boolean = this.app.loggedIn;
 
