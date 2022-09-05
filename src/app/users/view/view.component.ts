@@ -62,7 +62,7 @@ export class ViewComponent implements OnInit {
 
   checkId() {
     if (this.user.id == -1) {
-      this.router.navigateByUrl('users');
+      alert("Please Sign in to Enter the User's Page!");
     } else {
       this.retrieveUser();
       this.retrievePlans();
