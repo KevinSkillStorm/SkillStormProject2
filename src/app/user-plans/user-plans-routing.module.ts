@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MsalGuard } from '@azure/msal-angular';
 import { IndexComponent } from '../users/index/index.component';
 import { AddComponent } from './add/add.component';
 
 const routes: Routes = [
-  { path: 'user-plans/add/:id1/:id2', component: AddComponent },
-  { path: 'user/index', component: IndexComponent },
-
+  {
+    path: '', canActivate: [MsalGuard], children: [
+      { path: 'user-plans/add/:id1/:id2', component: AddComponent },
+      { path: 'user/index', component: IndexComponent },
+    ]
+  }
 ];
 
 @NgModule({

@@ -6,9 +6,8 @@ import { UsersModule } from './users/users.module';
 import { MsalGuard } from '@azure/msal-angular';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full' },
-  {path: 'users', component: IndexComponent, canActivate: [MsalGuard]}
-
+  { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: 'users', component: IndexComponent, canActivate: [MsalGuard] }
 ];
 
 @NgModule({
