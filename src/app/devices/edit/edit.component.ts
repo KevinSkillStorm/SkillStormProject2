@@ -118,6 +118,10 @@ export class EditComponent implements OnInit {
 
     return true;
   }
+
+  routeToNextPage(id: number){  
+    this.router.navigateByUrl(`/users/${id}`);   
+  } 
   // this.currentUserId = this.route.snapshot.params['id1'];
   //   this.currentPlanId = this.route.snapshot.params['id2'];
   //   this.currentDeviceId
