@@ -26,6 +26,8 @@ export const msalConfig: Configuration = {
         authority: b2cPolicies.authorities.signUpSignIn.authority,
         redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
         postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        // redirectUri: "http://localhost:4200/",
+        // postLogoutRedirectUri: "http://localhost:4200/",
         navigateToLoginRequestUrl: true,
         validateAuthority: true,
 
@@ -35,7 +37,7 @@ export const msalConfig: Configuration = {
         cacheLocation: "localStorage",
         storeAuthStateInCookie: isIE,
 
-    },   
+    },
 }
 
 export const loginRequest: { scopes: string[] } = {
@@ -69,6 +71,6 @@ export const guardConfig: MsalGuardConfiguration = {
 export const interceptconfig: MsalInterceptorConfiguration = {
     interactionType: InteractionType.Redirect,
     protectedResourceMap: new Map([
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']]        
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
     ]),
 }

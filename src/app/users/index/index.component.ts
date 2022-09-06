@@ -35,6 +35,7 @@ export class IndexComponent implements OnInit {
     this.app.checkAccount();
     this.loggedIn = this.app.loggedIn;
     console.log(`this.loggedIn = ${this.loggedIn}`);
+    console.log(`this.app.loggedIn = ${this.app.loggedIn}`);
     this.currentUserId = this.sendEvent.getCurrentUserId();
     console.log(`this.currentUserId = ${this.currentUserId}`);
   }
@@ -49,14 +50,10 @@ export class IndexComponent implements OnInit {
   //   this.router.navigateByUrl(`/users/${id}`);   
   // } 
 
-  // public isLoggedIn(): Boolean {
-  //   if (this.authService.instance.getActiveAccount() != null) {
-  //     return true;
-  //   } {
-  //     return false;
-  //   }
+  public isLoggedIn(): Boolean {
+    return this.authService.instance.getActiveAccount() != null;
     
-  // }
+  }
 }
 
 
