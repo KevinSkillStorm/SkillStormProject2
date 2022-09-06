@@ -17,6 +17,8 @@ export class MsalGuard implements CanActivate {
         if (this.msalService.instance.getActiveAccount() == null) {
             return false
         }
+
+        
         // if (localStorage.getItem("id")!= null && +localStorage.getItem("id")! != routeId) {
         //     return false;
         // }
