@@ -9,10 +9,10 @@
       <div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item active" *ngIf="loggedIn">
+            <li class="nav-item active" *ngIf="!isLoggedIn()">
               <button id="buttonProperty" (click)="login()" class="nav-link text-white">Login</button> 
             </li>
-            <li class="nav-item" *ngIf="!loggedIn">
+            <li class="nav-item" *ngIf="isLoggedIn()">
               <button id="buttonProperty" (click)="logout()" class="nav-link text-white">LogOut</button>             
             </li>
           </ul>

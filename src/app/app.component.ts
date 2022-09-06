@@ -69,6 +69,7 @@ export class AppComponent {
         console.log(authReponse.account?.name)
         var flag = false
         if (authReponse.account) {
+          this.authService.instance.setActiveAccount(authReponse.account);
           this.userService.getUsers().subscribe(res => {
             res.forEach(u => {
               if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
@@ -105,6 +106,12 @@ export class AppComponent {
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
   }   
+
+  public isLoggedIn(): Boolean {
+    console.log(`this.authService.instance.getActiveAccount() != null -----> ${this.authService.instance.getActiveAccount() != null}`);
+    return this.authService.instance.getActiveAccount() != null;
+    
+  }
   
   public login() {
     this.authService.loginRedirect();
