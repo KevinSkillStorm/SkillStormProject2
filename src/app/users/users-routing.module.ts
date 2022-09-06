@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'users/index', component: IndexComponent },
   { path: 'users/sign-up', component: SignUpComponent },
   { path: 'users/login', component: LoginComponent },
-  { path: 'users/:id', component: ViewComponent, canActivate: [MsalGuard]},
+  { path: 'users/:id', component: ViewComponent},
 
 ];
 
