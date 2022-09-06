@@ -21,8 +21,10 @@ export class MsalGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {  
-        console.log("SSSSSSSSSSSSSSSS");      
-        if (this.msalService.instance.getActiveAccount() != null && this.indexComponent.currentUserId == this.viewComponent.id) {
+        let url = this.route.snapshot.url.join('/');
+        let urlParams = url.split('/');
+        let id = +urlParams[1];
+        if (this.msalService.instance.getActiveAccount() != null && this.indexComponent.currentUserId == id) {
             return true;
         } else {
             return false;
