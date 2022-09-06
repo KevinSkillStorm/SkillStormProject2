@@ -10,22 +10,18 @@ import { UsersService } from "./users/users.service";
 })
 
 export class MsalGuard implements CanActivate {
-    id: number;
-
-    constructor(private msalService: MsalService, private appService: AppService, private userService: UsersService, private route: ActivatedRoute) {
-        let url = this.route.snapshot.url.join('/');
-        let urlParams = url.split('/');
-        this.id = +urlParams[2];
+    constructor(private msalService: MsalService, private appService: AppService) {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+        let routeId = +route.url.join('/').split('/')[1];
+        console.log(routeId)
         if (this.msalService.instance.getActiveAccount() == null) {
             return false
         }
-        this.appService.currentEvent.subscribe(res => {
-            console.log(res)
-            console.log(this.id)
-            if (res != this.id) {
+        this.appService.currentEvent.subscribe(currentId => {
+            console.log(currentId)
+            if (currentId != routeId) {
                 return false;
             }
             return true;
