@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
 
   images = ["rose", "resort", "dog"].map((n) => `assets/picture/${n}.jpg`);
 
-  loggedIn : Boolean = this.app.loggedIn;
+  loggedIn! : Boolean;
 
 
 
@@ -49,14 +49,14 @@ export class IndexComponent implements OnInit {
   //   this.router.navigateByUrl(`/users/${id}`);   
   // } 
 
-  public isLoggedIn(): Boolean {
-    if (this.authService.instance.getActiveAccount() != null) {
-      return true;
-    } {
-      return false;
-    }
+  // public isLoggedIn(): Boolean {
+  //   if (this.authService.instance.getActiveAccount() != null) {
+  //     return true;
+  //   } {
+  //     return false;
+  //   }
     
-  }
+  // }
 }
 
 

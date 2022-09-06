@@ -60,7 +60,7 @@ export class AppComponent {
       .subscribe((result: EventMessage) => {
         console.log(result);
       });
-
+      
     // 
     this.authService.handleRedirectObservable().subscribe(
       (authReponse) => {
@@ -104,18 +104,8 @@ export class AppComponent {
 
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
-  }
-
-  public isLoggedIn(): Boolean {
-    if (this.authService.instance.getActiveAccount() != null) {
-      return true;
-    } {
-      return false;
-    }
-    
-  }
-
-
+  }   
+  
   public login() {
     this.authService.loginRedirect();
   }
