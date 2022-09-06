@@ -35,6 +35,7 @@ export class IndexComponent implements OnInit {
     this.app.checkAccount();
     this.loggedIn = this.app.loggedIn;
     console.log(`this.loggedIn = ${this.loggedIn}`);
+    console.log(`this.app.loggedIn = ${this.app.loggedIn}`);
     this.currentUserId = this.sendEvent.getCurrentUserId();
     console.log(`this.currentUserId = ${this.currentUserId}`);
   }

@@ -38,6 +38,8 @@ function MSALConfigFactory(): Configuration {
         // authority: b2cPolicies.authorities.signUpSignIn.authority,
         redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
         postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        // redirectUri: "http://localhost:4200/",
+        // postLogoutRedirectUri: "http://localhost:4200/",
         navigateToLoginRequestUrl: true,
       },
       cache: {
