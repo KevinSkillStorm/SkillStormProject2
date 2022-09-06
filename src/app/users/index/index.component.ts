@@ -51,6 +51,7 @@ export class IndexComponent implements OnInit {
   // } 
 
   public isLoggedIn(): Boolean {
+    console.log(`this.authService.instance.getActiveAccount() != null -----> ${this.authService.instance.getActiveAccount() != null}`);
     return this.authService.instance.getActiveAccount() != null;
     
   }
