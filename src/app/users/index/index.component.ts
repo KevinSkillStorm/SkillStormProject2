@@ -15,6 +15,8 @@ export class IndexComponent implements OnInit {
 
   loggedIn : Boolean = this.app.loggedIn;
 
+
+
   // @Input() currentUserId!: number;
 
   currentUserId!: number;
@@ -29,8 +31,9 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.app.checkAccount();
-    this.loggedIn = this.app.loggedIn
-    this.currentUserId = this.sendEvent.getCurrentUserId()
+    this.loggedIn = this.app.loggedIn;
+    console.log(`this.loggedIn = ${this.loggedIn}`);
+    this.currentUserId = this.sendEvent.getCurrentUserId();
     console.log(`this.currentUserId = ${this.currentUserId}`);
   }
   ngOnChanges(): void {
