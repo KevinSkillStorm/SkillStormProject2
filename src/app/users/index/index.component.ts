@@ -36,8 +36,8 @@ export class IndexComponent implements OnInit {
   }
 
   routeToNextPage(id: number){ 
-    console.log("routeToNextPage was called"); 
-    // this.router.navigateByUrl(`/users/${id}`);   
+    // console.log("routeToNextPage was called"); 
+    this.router.navigateByUrl(`/users/${id}`);   
   } 
 }
 
