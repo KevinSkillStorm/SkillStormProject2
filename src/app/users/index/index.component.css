@@ -1,4 +1,39 @@
-.picsum-img-wrapper{
+/* .picsum-img-wrapper{
     height:50rem;
     position: relative;
+} */
+
+h3{
+    font-size: 100px;
+    font-weight:700;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+p{
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+a{
+    height:60px;
+    width:300px;
+    font-size:25px;
+}
+
+
+.carousel-caption {
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;
+    font-weight:700;
+  
+    
 }
