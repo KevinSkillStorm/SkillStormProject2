@@ -24,4 +24,10 @@ body {
     content: "";
     display: table;
     clear: both;
+    margin-top: 0;
+}
+
+
+h1 {
+    margin-top: 0;
 }
