@@ -7,13 +7,15 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 
-export class MsalGuard implements CanActivate {
+export class idGuard implements CanActivate {
     constructor(private msalService: MsalService) {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        if (this.msalService.instance.getActiveAccount() == null) {
-            return false
+        let routeId = +route.url.join('/').split('/')[1];
+        console.log(routeId)
+        if (localStorage.getItem("id")!= null && +localStorage.getItem("id")! != routeId) {
+            return false;
         }
         return true
     }
