@@ -35,10 +35,9 @@ export class IndexComponent implements OnInit {
     console.log(`this.currentUserId = ${this.currentUserId} changed`);
   }
 
-  routeToNextPage(id: number){    
-    
-      this.router.navigateByUrl(`/users/${id}`);
-   
+  routeToNextPage(id: number){ 
+    console.log("routeToNextPage was called"); 
+    // this.router.navigateByUrl(`/users/${id}`);   
   } 
 }
 
