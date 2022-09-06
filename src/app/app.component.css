@@ -1,3 +1,7 @@
 #buttonProperty{
     background: transparent;
 }
+
+header {
+    display: block;
+}
