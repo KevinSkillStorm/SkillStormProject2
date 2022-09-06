@@ -1,6 +1,6 @@
 import { MsalGuardConfiguration, MsalInterceptorConfiguration, ProtectedResourceScopes } from "@azure/msal-angular";
 import { InteractionType } from "@azure/msal-browser";
-import { Configuration } from "msal";
+import { Configuration, LogLevel } from "msal";
 
 export const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Triden/') > -1;
 
@@ -20,14 +20,14 @@ export const apiConfig: { b2cScopes: string[], apiEndpoint: string } = {
     apiEndpoint: "https://phonecomtech.onmicrosoft.com/phone-client/api"
 }
 
-export const msalConfig: Configuration = {
+export const msalConfig : Configuration = {
     auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
         authority: b2cPolicies.authorities.signUpSignIn.authority,
-        redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        // redirectUri: "http://localhost:4200/",
-        // postLogoutRedirectUri: "http://localhost:4200/",
+        // redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        // postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        redirectUri: "http://localhost:4200/",
+        postLogoutRedirectUri: "http://localhost:4200/",
         navigateToLoginRequestUrl: true,
         validateAuthority: true,
 
@@ -38,6 +38,34 @@ export const msalConfig: Configuration = {
         storeAuthStateInCookie: isIE,
 
     },
+    // system: {
+    //     loggerOptions: {
+    //         loggerCallback: (level: LogLevel, message: string, containsPii: boolean): void => {
+    //             if (containsPii) {
+    //                 return;
+    //             }
+    //             switch (level) {
+    //                 case LogLevel.Error:
+    //                     console.error(message);
+    //                     return;
+    //                 case LogLevel.Info:
+    //                     console.info(message);
+    //                     return;
+    //                 case LogLevel.Verbose:
+    //                     console.debug(message);
+    //                     return;
+    //                 case LogLevel.Warning:
+    //                     console.warn(message);
+    //                     return;
+    //             }
+    //         },
+    //         piiLoggingEnabled: false
+    //     },
+    //     windowHashTimeout: 60000,
+    //     iframeHashTimeout: 6000,
+    //     loadFrameTimeout: 0,
+    //     asyncPopups: false
+    // },
 }
 
 export const loginRequest: { scopes: string[] } = {

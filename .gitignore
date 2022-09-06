@@ -43,3 +43,6 @@ Thumbs.db
 src/environments/environment.prod.ts
 src/app/app.module.ts
 src/app/app-config.ts
+src/app/app-config.ts
+src/app/app.module.ts
+src/environments/environment.prod.ts

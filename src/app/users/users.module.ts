@@ -20,7 +20,8 @@ import { IndexComponent } from './index/index.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    
   ]
 })
 export class UsersModule { }

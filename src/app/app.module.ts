@@ -11,7 +11,7 @@ import { PlansModule } from './plans/plans.module';
 import { DevicesModule } from './devices/devices.module';
 import { UserPlansModule } from './user-plans/user-plans.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
+import { MsalGuard, MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Configuration } from 'msal';
@@ -20,6 +20,7 @@ import { msalConfig, guardConfig, isIE, b2cPolicies, interceptconfig } from './a
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './users/index/index.component';
+
 
 
 function MSALConfigFactory(): Configuration {
@@ -36,10 +37,10 @@ function MSALConfigFactory(): Configuration {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
         authority: "https://login.microsoftonline.com/common/",
         // authority: b2cPolicies.authorities.signUpSignIn.authority,
-        redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        // redirectUri: "http://localhost:4200/",
-        // postLogoutRedirectUri: "http://localhost:4200/",
+        // redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        // postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        redirectUri: "http://localhost:4200/",
+        postLogoutRedirectUri: "http://localhost:4200/",
         navigateToLoginRequestUrl: true,
       },
       cache: {
@@ -59,7 +60,7 @@ function MSALConfigFactory(): Configuration {
     PlansModule,
     DevicesModule,
     UserPlansModule,
-    NgbModule,
+    NgbModule,    
   ],
   providers: [
     {
