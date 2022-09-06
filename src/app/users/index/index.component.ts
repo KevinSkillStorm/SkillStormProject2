@@ -38,9 +38,9 @@ export class IndexComponent implements OnInit {
   }
 
   routeToNextPage(id: number){    
-    if (id != -1){
+    
       this.router.navigateByUrl(`/users/${id}`);
-    } 
+   
   } 
 }
 
