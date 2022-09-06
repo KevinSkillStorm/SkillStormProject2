@@ -91,7 +91,7 @@ export class AppComponent {
               this.sendEvent.sendCurrentUserId(this.currentUserId);
             })
           }
-          this.router.navigateByUrl(`users/${this.currentUserId}`);
+          // this.router.navigateByUrl(`users/${this.currentUserId}`);
         }
       });
 
