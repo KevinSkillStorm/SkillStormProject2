@@ -1,0 +1,28 @@
+tr:nth-child(odd) {
+    background-color: rgb(255, 255, 255);
+}
+
+tr:nth-child(even) {
+    background-color: rgb(225, 225, 225);
+}
+
+th {
+    background-color: rgb(225, 225, 225);
+}
+
+body {
+    margin: 0px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-top: 0;
+}
