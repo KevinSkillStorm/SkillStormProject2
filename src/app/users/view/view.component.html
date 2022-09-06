@@ -1,57 +1,64 @@
-<div class="panel panel-default" [ngStyle]="{'background-image': 'url(../../../assets/picture/marblebackground.webp)'}">
-<div class="container mt-3">
-    <a href="#" routerLink="/users/index" class="btn btn-primary">&lt;&lt; Back</a>
-    <div style="-ms-flex-align: center;">
-        <h1> Welcome {{user.name}}</h1>
-        <p>Username: <strong>{{user.username}}</strong></p>
-        <p>Email: <strong>{{user.email}}</strong></p>
+<div [ngStyle]="{'background-image': 'url(../../../assets/picture/marblebackground.webp)'}">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="column">
+            <a href="#" routerLink="/users/index" class="btn btn-primary">&lt;&lt; Back</a>
+            <div style="-ms-flex-align: center;">
+                <h1> Welcome {{user.name}}</h1>
+                <p>Username: <strong>{{user.username}}</strong></p>
+                <p>Email: <strong>{{user.email}}</strong></p>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Monthly Payment Breakdown</h3>
+            <div *ngFor="let plan of plans">
+                <p>{{plan.name}} costs <strong>${{plan.price}}</strong> a month</p>
+            </div>
+            <p>The total price per month is <strong>${{calculatePrice()}}</strong></p>
+        </div>
+        <h3>Plans</h3>
+        <a href="#" routerLink="/plans/view/{{user.id}}" class="btn btn-success">+ Add Plan</a>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Limit</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let plan of plans">
+                    <td>{{plan.id}}</td>
+                    <td>{{plan.name}}</td>
+                    <td>{{plan.limit}}</td>
+                    <td>{{plan.price}}</td>
+                    <td>{{plan.description}}</td>
+                    <td><button (click)="removePlan(plan.id)" class="btn btn-danger">Delete</button></td>
+                </tr>  
+            </tbody>
+        </table>
+        <h3>Devices</h3>
+        <button [disabled]="disableButton()" (click)="routing()" class="btn btn-success">+ Create Device</button>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let device of devices">
+                    <td>{{device.name}}</td>
+                    <td>{{device.phoneNumber}}</td>
+                    <td><button (click)="routeToUpdate(device, user.id)" class="btn btn-primary">Edit</button>
+                        <button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
+                </tr>  
+            </tbody>
+        </table>
+        <button (click)="removeUser(user.id)" class="btn btn-danger">Delete Account </button>
     </div>
-    <h3>Plans</h3><a href="#" routerLink="/plans/view/{{user.id}}" class="btn btn-success">+ Add Plan</a>
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Limit</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let plan of plans">
-                <td>{{plan.id}}</td>
-                <td>{{plan.name}}</td>
-                <td>{{plan.limit}}</td>
-                <td>{{plan.price}}</td>
-                <td>{{plan.description}}</td>
-                <td><button (click)="removePlan(plan.id)" class="btn btn-danger">Delete</button></td>
-            </tr>  
-        </tbody>
-    </table>
-    <h3>Devices</h3><button [disabled]="disableButton()" (click)="routing()" class="btn btn-success">+ Create Device</button>
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let device of devices">
-                <td>{{device.name}}</td>
-                <td>{{device.phoneNumber}}</td>
-                <td><button (click)="routeToUpdate(device, user.id)" class="btn btn-primary">Edit</button>
-                    <button (click)="removeDevice(device.id)" class="btn btn-danger">Delete</button></td>
-            </tr>  
-        </tbody>
-    </table>
-    <h3>Monthly Payment Breakdown</h3>
-    <div *ngFor="let plan of plans">
-        <p>{{plan.name}} costs <strong>${{plan.price}}</strong> a month</p>
-    </div>
-    <p>The total price per month is <strong>${{calculatePrice()}}</strong></p>
-    <button (click)="removeUser(user.id)" class="btn btn-danger">Delete Account </button>
-</div>
 </div>
