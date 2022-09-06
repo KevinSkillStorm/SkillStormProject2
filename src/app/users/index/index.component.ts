@@ -50,14 +50,10 @@ export class IndexComponent implements OnInit {
   //   this.router.navigateByUrl(`/users/${id}`);   
   // } 
 
-  // public isLoggedIn(): Boolean {
-  //   if (this.authService.instance.getActiveAccount() != null) {
-  //     return true;
-  //   } {
-  //     return false;
-  //   }
+  public isLoggedIn(): Boolean {
+    return this.authService.instance.getActiveAccount() != null;
     
-  // }
+  }
 }
 
 
