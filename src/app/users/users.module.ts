@@ -12,7 +12,7 @@ import { IndexComponent } from './index/index.component';
 @NgModule({
   declarations: [
     ViewComponent,
-    IndexComponent
+    IndexComponent,
   ],
   imports: [
     CommonModule,

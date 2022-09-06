@@ -28,8 +28,7 @@ function MSALConfigFactory(): Configuration {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    IndexComponent,
+    AppComponent
   ],
   imports: [
     MsalModule.forRoot(new PublicClientApplication({
