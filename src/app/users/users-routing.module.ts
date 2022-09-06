@@ -6,8 +6,8 @@ import { MsalGuard } from '@azure/msal-angular';
 
 const routes: Routes = [
   { path: 'users', redirectTo: 'users/index', pathMatch: 'full' },
-  { path: 'users/index', component: IndexComponent },
-  { path: 'users/:id', component: ViewComponent},
+  { path: 'users/index', component: IndexComponent},
+  { path: 'users/:id', component: ViewComponent, canActivate: [MsalGuard]},
 
 ];
 
