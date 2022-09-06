@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { PlansModule } from './plans/plans.module';
 import { DevicesModule } from './devices/devices.module';
-import { PhoneNumbersModule } from './phone-numbers/phone-numbers.module';
 import { UserPlansModule } from './user-plans/user-plans.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
@@ -21,8 +20,6 @@ import { msalConfig, guardConfig, isIE, b2cPolicies, interceptconfig } from './a
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './users/index/index.component';
-import { RandomComponent } from './random/random.component';
-
 
 
 function MSALConfigFactory(): Configuration {
@@ -33,7 +30,6 @@ function MSALConfigFactory(): Configuration {
   declarations: [
     AppComponent,
     IndexComponent,
-    RandomComponent,
   ],
   imports: [
     MsalModule.forRoot(new PublicClientApplication({
@@ -61,7 +57,6 @@ function MSALConfigFactory(): Configuration {
     UsersModule,
     PlansModule,
     DevicesModule,
-    PhoneNumbersModule,
     UserPlansModule,
     NgbModule,
   ],

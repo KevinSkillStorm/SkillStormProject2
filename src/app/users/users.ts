@@ -1,5 +1,4 @@
 import { Device } from "../devices/devices";
-import { PhoneNumber } from "../phone-numbers/phone-numbers";
 import { UserPlan } from "../user-plans/user-plans";
 
 export interface User{
@@ -8,7 +7,6 @@ export interface User{
     username: string,
     email: string,
     password: string,
-    phoneNumbers: PhoneNumber[],
     userPlans: UserPlan[],
     devices: Device[]
 }

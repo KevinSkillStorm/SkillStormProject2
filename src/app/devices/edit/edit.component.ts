@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route, Router, RouterConfigurationFeature } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { PhoneNumber } from 'src/app/phone-numbers/phone-numbers';
 import { Plan } from 'src/app/plans/plans';
 import { PlansService } from 'src/app/plans/plans.service';
 import { Device } from '../devices';

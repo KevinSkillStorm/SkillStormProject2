@@ -43,7 +43,6 @@ export class ViewComponent implements OnInit {
       username: '',
       email: '',
       password: '',
-      phoneNumbers: [],
       userPlans: [],
       devices: []
     }
