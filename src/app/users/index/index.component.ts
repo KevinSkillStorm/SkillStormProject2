@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
   // @Input() currentUserId!: number;
 
   currentUserId!: number;
-  
+
   
 
   constructor(
@@ -28,10 +28,14 @@ export class IndexComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.app.checkAccount();
+    this.loggedIn = this.app.loggedIn
     this.currentUserId = this.sendEvent.getCurrentUserId()
     console.log(`this.currentUserId = ${this.currentUserId}`);
   }
   ngOnChanges(): void {
+    this.app.checkAccount();
+    this.loggedIn = this.app.loggedIn
     console.log(`this.currentUserId = ${this.currentUserId} changed`);
   }
 

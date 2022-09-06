@@ -97,6 +97,9 @@ export class AppComponent {
 
   }
 
+  ngOnChanges(): void {
+    this.checkAccount();
+  }
 
 
   public checkAccount() {
