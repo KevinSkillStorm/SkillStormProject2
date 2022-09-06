@@ -1,36 +1,69 @@
-<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[0]" class="img-fluid" alt="First Slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Welcome!</h3>
-      <p>Visit Your Information Page!</p>
-      <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[1]" class="img-fluid" alt="Second Slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Welcome!</h3>
-      <p>Visit Your Information Page!</p>
-      <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[2]" class="img-fluid" alt="Third Slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Welcome!</h3>
-      <p>Visit Your Information Page!</p>
-      <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
-      <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
-    </div>
-    <!-- <app-child (messageEvent)="receiveMessage($event)"></app-child> -->
-  </ng-template>
-</ngb-carousel>
+<div *ngIf="loggedIn">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" class="img-fluid" alt="First Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Visit Your Information Page!</p>
+        <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
+        <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" class="img-fluid" alt="Second Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Visit Your Information Page!</p>
+        <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
+        <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" class="img-fluid" alt="Third Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Visit Your Information Page!</p>
+        <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
+        <a href="#" routerLink="/users/{{currentUserId}}" class="btn btn-primary">User Page</a>
+      </div>
+      <!-- <app-child (messageEvent)="receiveMessage($event)"></app-child> -->
+    </ng-template>
+  </ngb-carousel>
+</div>
+<div *ngIf="!loggedIn">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" class="img-fluid" alt="First Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Please Login to your account</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" class="img-fluid" alt="Second Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Please Login to your account</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" class="img-fluid" alt="Third Slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Welcome!</h3>
+        <p>Please Login to your account</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

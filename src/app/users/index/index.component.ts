@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
   // @Input() currentUserId!: number;
 
   currentUserId!: number;
-
+  
   
 
   constructor(
