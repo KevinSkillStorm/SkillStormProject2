@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MsalService } from '@azure/msal-angular';
 import { AppComponent } from 'src/app/app.component';
 import { AppService } from 'src/app/app.service';
 
@@ -24,6 +25,7 @@ export class IndexComponent implements OnInit {
   
 
   constructor(
+    private authService: MsalService,
     private app: AppComponent,
     private router: Router,
     private sendEvent: AppService
@@ -46,6 +48,15 @@ export class IndexComponent implements OnInit {
   //   // console.log("routeToNextPage was called"); 
   //   this.router.navigateByUrl(`/users/${id}`);   
   // } 
+
+  public isLoggedIn(): Boolean {
+    if (this.authService.instance.getActiveAccount() != null) {
+      return true;
+    } {
+      return false;
+    }
+    
+  }
 }
 
 
