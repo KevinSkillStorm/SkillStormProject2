@@ -19,13 +19,16 @@ export class MsalGuard implements CanActivate {
         if (this.msalService.instance.getActiveAccount() == null) {
             return false
         }
+        var flag = true;
         this.appService.currentEvent.subscribe(currentId => {
             console.log(currentId)
             if (currentId != routeId) {
-                return false;
+                flag = false;
             }
-            return true;
         })
+        if (flag) {
+            return false;
+        }
         return true;
     }
 }
