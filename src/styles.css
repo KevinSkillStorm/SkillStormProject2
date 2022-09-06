@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.2/tailwind.min.css);
 @import '~bootstrap/dist/css/bootstrap.css';
 @tailwind base;
 @tailwind components;
