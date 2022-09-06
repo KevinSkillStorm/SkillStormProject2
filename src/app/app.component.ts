@@ -7,6 +7,7 @@ import { CryptoUtils, Logger } from 'msal';
 import { UsersService } from './users/users.service';
 import { UserDTO } from './users/users';
 import { AppService } from './app.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class AppComponent {
     private sendEvent: AppService,
     private broadcastService: MsalBroadcastService,
     private authService: MsalService,
-    private userService: UsersService) {
+    private userService: UsersService,
+    private router: Router) {
     this.currentUser = {
       id: this.currentUserId,
       name: '',
@@ -89,6 +91,7 @@ export class AppComponent {
               this.sendEvent.sendCurrentUserId(this.currentUserId);
             })
           }
+          this.router.navigateByUrl(`users/${this.currentUserId}`);
         }
       });
 
