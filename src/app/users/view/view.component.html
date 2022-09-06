@@ -1,10 +1,20 @@
 <div [ngStyle]="{'background-image': 'url(../../../assets/picture/marblebackground.webp)'}">
 <div class="container mt-3">
-    <a href="#" routerLink="/users/index" class="btn btn-primary">&lt;&lt; Back</a>
-    <div style="-ms-flex-align: center;">
-        <h1> Welcome {{user.name}}</h1>
-        <p>Username: <strong>{{user.username}}</strong></p>
-        <p>Email: <strong>{{user.email}}</strong></p>
+    <div class="row">
+        <div class="column">
+        <a href="#" routerLink="/users/index" class="btn btn-primary">&lt;&lt; Back</a>
+        <div style="-ms-flex-align: center;">
+            <h1> Welcome {{user.name}}</h1>
+            <p>Username: <strong>{{user.username}}</strong></p>
+            <p>Email: <strong>{{user.email}}</strong></p>
+        </div>
+    </div>
+    <div class="column">
+        <h3>Monthly Payment Breakdown</h3>
+        <div *ngFor="let plan of plans">
+            <p>{{plan.name}} costs <strong>${{plan.price}}</strong> a month</p>
+        </div>
+        <p>The total price per month is <strong>${{calculatePrice()}}</strong></p>
     </div>
     <h3>Plans</h3><a href="#" routerLink="/plans/view/{{user.id}}" class="btn btn-success">+ Add Plan</a>
     <table class="table table-bordered table-striped table-hover">
@@ -47,11 +57,7 @@
             </tr>  
         </tbody>
     </table>
-    <h3>Monthly Payment Breakdown</h3>
-    <div *ngFor="let plan of plans">
-        <p>{{plan.name}} costs <strong>${{plan.price}}</strong> a month</p>
-    </div>
-    <p>The total price per month is <strong>${{calculatePrice()}}</strong></p>
     <button (click)="removeUser(user.id)" class="btn btn-danger">Delete Account </button>
+</div>
 </div>
 </div>
