@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'telecom-frontend';
   isIframe = false;
-  loggedIn: Boolean = false;
+  loggedIn = false;
 
   currentUser: UserDTO;
   currentUserId: number = -1;
@@ -51,9 +51,16 @@ export class AppComponent {
       )
       .subscribe((result: EventMessage) => {
         console.log(result);
-        this.loggedIn = true;
       });
 
+    this.broadcastService.msalSubject$
+      .pipe(
+        filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS),
+      )
+      .subscribe((result: EventMessage) => {
+        console.log(result);
+      });
+      
     // 
     this.authService.handleRedirectObservable().subscribe(
       (authReponse) => {
@@ -68,7 +75,6 @@ export class AppComponent {
                 flag = true;
                 this.currentUserId = u.id;
                 this.sendEvent.sendCurrentUserId(this.currentUserId);
-                this.loggedIn = true;
               }
             });
           });
@@ -83,7 +89,6 @@ export class AppComponent {
             this.userService.createUser(this.currentUser).subscribe(res => {
               this.currentUserId = res.id;
               this.sendEvent.sendCurrentUserId(this.currentUserId);
-              this.loggedIn = true;
             })
           }
           // this.router.navigateByUrl(`users/${this.currentUserId}`);
@@ -99,27 +104,8 @@ export class AppComponent {
 
   public checkAccount() {
     this.loggedIn = !!this.authService.instance.getActiveAccount();
-    console.log(`this.loggedIn = ${this.loggedIn}`);
-
-  }
-
-  public isLoggedin(): Boolean {
-    this.authService.handleRedirectObservable().subscribe(
-      (authReponse) => {
-        if(authReponse.account != null){
-          this.loggedIn = true;
-        }
-      });
-
-
-    if (!!this.authService.instance.getActiveAccount() == null) {
-      return false;
-    }
-    else {
-      return true;
-    }
-  }
-
+  }   
+  
   public login() {
     this.authService.loginRedirect();
   }
