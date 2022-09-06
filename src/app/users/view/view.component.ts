@@ -30,7 +30,7 @@ export class ViewComponent implements OnInit {
     private deviceService: DevicesService,
     private userService: UsersService,
     private router: Router,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     private cd: ChangeDetectorRef
   ) {
     let url = this.route.snapshot.url.join('/');

@@ -23,6 +23,8 @@ export class AppComponent {
   currentUser: UserDTO;
   currentUserId: number = -1;
 
+  authReponseId!: number;
+
   constructor(
     private sendEvent: AppService,
     private broadcastService: MsalBroadcastService,
@@ -74,7 +76,9 @@ export class AppComponent {
             res.forEach(u => {
               if (u.name == authReponse.account?.name! && u.username == authReponse.account?.username! && !flag) {
                 flag = true;
+
                 this.currentUserId = u.id;
+                console.log(`this.currentUserId = ${this.currentUserId}`);
                 this.sendEvent.sendCurrentUserId(this.currentUserId);
               }
             });
@@ -108,7 +112,7 @@ export class AppComponent {
   }   
 
   public isLoggedIn(): Boolean {
-    console.log(`this.authService.instance.getActiveAccount() != null -----> ${this.authService.instance.getActiveAccount() != null}`);
+    // console.log(`this.authService.instance.getActiveAccount() != null -----> ${this.authService.instance.getActiveAccount() != null}`); // debugging purpose
     return this.authService.instance.getActiveAccount() != null;
     
   }

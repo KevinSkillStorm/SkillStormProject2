@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
+import { WindowUtils } from 'msal';
 import { AppComponent } from 'src/app/app.component';
 import { AppService } from 'src/app/app.service';
 
@@ -36,12 +37,20 @@ export class IndexComponent implements OnInit {
     this.loggedIn = this.app.loggedIn;
     console.log(`this.loggedIn = ${this.loggedIn}`);
     console.log(`this.app.loggedIn = ${this.app.loggedIn}`);
-    this.currentUserId = this.sendEvent.getCurrentUserId();
-    console.log(`this.currentUserId = ${this.currentUserId}`);
+    
+    // this.currentUserId = this.sendEvent.getCurrentUserId();
+    
+    setTimeout(() => {
+      this.currentUserId = this.app.currentUserId;
+      console.log(`this.currentUserId = ${this.currentUserId}`);
+    }, 1000);
+    // console.log(`this.currentUserId = ${this.currentUserId}`);
+    
   }
   ngOnChanges(): void {
     this.app.checkAccount();
     this.loggedIn = this.app.loggedIn
+    this.currentUserId = this.sendEvent.getCurrentUserId();
     console.log(`this.currentUserId = ${this.currentUserId} changed`);
   }
 
@@ -51,7 +60,6 @@ export class IndexComponent implements OnInit {
   // } 
 
   public isLoggedIn(): Boolean {
-    console.log(`this.authService.instance.getActiveAccount() != null -----> ${this.authService.instance.getActiveAccount() != null}`);
     return this.authService.instance.getActiveAccount() != null;
     
   }
