@@ -28,10 +28,8 @@ export class IndexComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.sendEvent.currentEvent.subscribe(id => {
-      this.currentUserId = id;
-      console.log(`this.currentUserId = ${this.currentUserId}`);
-    });    
+    this.currentUserId = this.sendEvent.getCurrentUserId()
+    console.log(`this.currentUserId = ${this.currentUserId}`);
   }
   ngOnChanges(): void {
     console.log(`this.currentUserId = ${this.currentUserId} changed`);

@@ -39,7 +39,7 @@ export class AppComponent {
 
 
   ngOnInit(): void {
-    this.sendEvent.currentEvent.subscribe(id => this.currentUserId = id);
+    this.currentUserId = this.sendEvent.getCurrentUserId();
     this.isIframe = window !== window.parent && !window.opener;
     this.checkAccount();
 
