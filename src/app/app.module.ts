@@ -21,6 +21,7 @@ import { msalConfig, guardConfig, isIE, b2cPolicies, interceptconfig } from './a
 import { PublicClientApplication } from '@azure/msal-browser';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './users/index/index.component';
+import { RandomComponent } from './random/random.component';
 
 
 
@@ -32,6 +33,7 @@ function MSALConfigFactory(): Configuration {
   declarations: [
     AppComponent,
     IndexComponent,
+    RandomComponent,
   ],
   imports: [
     MsalModule.forRoot(new PublicClientApplication({
