@@ -3,11 +3,11 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(225, 225, 225);
 }
 
 th {
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(225, 225, 225);
 }
 
 body {
