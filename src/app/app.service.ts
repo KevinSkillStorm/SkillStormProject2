@@ -6,9 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AppService {
   constructor() { }
-  public sendCurrentUserId(id: number){
+  public sendCurrentUserId(id: number): void{
     // this.sendEvent.next(id);
-    return localStorage.setItem("id", "" + id);
+    localStorage.removeItem("id");
+    localStorage.setItem("id", "" + id);
   }
   public getCurrentUserId(): number {
     return +localStorage.getItem("id")!;

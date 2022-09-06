@@ -14,14 +14,14 @@ export class MsalGuard implements CanActivate {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        let routeId = +route.url.join('/').split('/')[1];
-        console.log(routeId)
+        // let routeId = +route.url.join('/').split('/')[1];
+        // console.log(routeId)
         if (this.msalService.instance.getActiveAccount() == null) {
             return false
         }
-        if (localStorage.getItem("id")!= null && +localStorage.getItem("id")! != routeId) {
-            return false;
-        }
+        // if (localStorage.getItem("id")!= null && +localStorage.getItem("id")! != routeId) {
+        //     return false;
+        // }
         return true;
     }
 }
