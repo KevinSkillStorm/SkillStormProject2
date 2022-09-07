@@ -7,8 +7,7 @@ import { MaslGuard } from '../masl.guard';
 const routes: Routes = [
   { path: 'users', redirectTo: 'users/index', pathMatch: 'full' },
   { path: 'users/index', component: IndexComponent},
-  { path: 'users/:id', component: ViewComponent, canActivate: [MaslGuard]},
-  
+  { path: 'users/:id', component: ViewComponent, canActivate: [MaslGuard]}, 
 
 ];
 

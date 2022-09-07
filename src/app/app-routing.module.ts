@@ -6,7 +6,7 @@ import { BackendGuard } from './backend.guard';
 const routes: Routes = [
   {path: '', redirectTo: 'users/index', pathMatch: 'full' },
   {path: 'users/index', component: IndexComponent},
-  // {path: '/api/users', component: IndexComponent, canActivate: [BackendGuard]}
+  {path: '/api/users', component: IndexComponent, canActivate: [BackendGuard]}
 
 ];
 
