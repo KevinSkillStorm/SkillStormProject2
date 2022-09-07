@@ -24,10 +24,10 @@ export const msalConfig : Configuration = {
     auth: {
         clientId: "25d9c810-c2a0-4f1e-8be8-e7cd7d02a31a",
         authority: b2cPolicies.authorities.signUpSignIn.authority,
-        // redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        // postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
-        redirectUri: "http://localhost:4200/",
-        postLogoutRedirectUri: "http://localhost:4200/",
+        redirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        postLogoutRedirectUri: "https://victorious-sea-08c9bd610.1.azurestaticapps.net/",
+        // redirectUri: "http://localhost:4200/",
+        // postLogoutRedirectUri: "http://localhost:4200/",
         navigateToLoginRequestUrl: true,
         validateAuthority: true,
 
