@@ -46,17 +46,10 @@ export class ViewComponent implements OnInit {
       userPlans: [],
       devices: []
     }
-    // setTimeout(() => {
-    //   this.retrieveUser();
-    // }, 200000);
-    // console.log(this.user)
   }
 
   ngOnInit() {
-    // this.userId = this.route.snapshot.params['id'];
     this.checkId();
-
-    // this.cd.detectChanges();
   }
 
   checkId() {

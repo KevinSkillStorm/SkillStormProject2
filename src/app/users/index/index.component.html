@@ -21,7 +21,6 @@
       <div class="carousel-caption">
         <h3>Welcome!</h3>
         <p>Visit Your Information Page!</p>
-        <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
         <a href="#" routerLink="/users/{{currentUserId}}" *ngIf="showCondition" class="btn btn-primary">User Page</a>
       </div>
     </ng-template>
@@ -32,10 +31,8 @@
       <div class="carousel-caption">
         <h3>Welcome!</h3>
         <p>Visit Your Information Page!</p>
-        <!-- <a href="#" (routerLink)="routeToNextPage(currentUserId)" class="btn btn-primary">&lt;&lt; User Page</a> -->
         <a href="#" routerLink="/users/{{currentUserId}}" *ngIf="showCondition" class="btn btn-primary">User Page</a>
       </div>
-      <!-- <app-child (messageEvent)="receiveMessage($event)"></app-child> -->
     </ng-template>
   </ngb-carousel>
 </div>

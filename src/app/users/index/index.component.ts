@@ -19,11 +19,7 @@ export class IndexComponent implements OnInit {
 
   showCondition: Boolean = false;
 
-  // @Input() currentUserId!: number;
-
   currentUserId!: number;
-
-  
 
   constructor(
     private authService: MsalService,
@@ -49,12 +45,6 @@ export class IndexComponent implements OnInit {
     this.currentUserId = this.sendEvent.getCurrentUserId();
     console.log(`this.currentUserId = ${this.currentUserId} changed`);
   }
-
-  // routeToNextPage(id: number){ 
-  //   // console.log("routeToNextPage was called"); 
-  //   this.router.navigateByUrl(`/users/${id}`);   
-  // } 
-
   public isLoggedIn(): Boolean {
     return this.authService.instance.getActiveAccount() != null;
     
